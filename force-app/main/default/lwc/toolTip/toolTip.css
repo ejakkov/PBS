@@ -6,16 +6,17 @@
 .tooltip {
     visibility: hidden;
     width: 120px;
-    background-color: black;
+    background-color: rgb(255, 0, 0);
     color: white;
     text-align: center;
     border-radius: 6px;
     padding: 5px;
     position: absolute;
     z-index: 1;
-    top: 50%;
-    left: 125%;
-    transform: translateY(-50%);
+    bottom: 140% ; 
+    right: 0;
+    left: 0.8;
+    transform: translate(75%); 
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -23,4 +24,18 @@
 .tooltip.show {
     visibility: visible;
     opacity: 1;
+}
+
+.tooltip::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: red transparent transparent transparent;
+    top: 100%;
+    right: 1;
+    left: 0;
+    transform: translateX(50%);
 }
