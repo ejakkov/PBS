@@ -1,0 +1,20 @@
+root{
+    --pbs-font_branded: 'Helvetica Neue LT Pro 65 Medium', sans-serif;
+    --pbs-text-color_dark: #333333;
+    --pbs-color_grey: #999;
+    --pbs-color_black: #000;
+    --pbs-color_white: #fff;
+    --pbs-color_white_2: #f6f6f6;
+    --pbs-color_gray: gray;
+    --pbs-background-color: #ef4035;
+    --pbs-spinner-animation-duration: 4000ms;
+    --pbs-spinner-animation-iteration-count: infinite;
+    --pbs-spinner-animation-timing-function: linear;
+    --pbs-text-details-font-size: 0.688rem;
+    --pbs-decoration-underline: underline;
+    --pbs-button-border-none: none;
+    --pbs-button-background-none: none;
+    --pbs-flex-wrap-wrap: wrap;
+    --pbs-community-button-border-radius: 0.25rem;
+    --pbs-modal-alignment-baseline: baseline;
+}

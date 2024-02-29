@@ -1,0 +1,11 @@
+.container {
+    position: relative;
+    display: inline-block; /* Added this line */
+}
+
+c-tool-tip {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 10px; /* Adjust this value as needed to position the tooltip */
+}

@@ -1,0 +1,4 @@
+@import "c/cssLibrary";
+h1 {
+    font-family: var(--pbs-font_branded);
+}

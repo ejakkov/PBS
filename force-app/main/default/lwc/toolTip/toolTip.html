@@ -1,0 +1,10 @@
+<template>
+    <div class="container">
+        <lightning-icon icon-name="utility:info" size="x-small" alternative-text="Tooltip Icon"
+            onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>
+        </lightning-icon>
+        <div class="tooltip">
+            <slot name="tooltipText">Hover over the icon to see the tooltip</slot>
+        </div>
+    </div>
+</template>
