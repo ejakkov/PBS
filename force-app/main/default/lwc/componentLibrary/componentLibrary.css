@@ -1,7 +1,3 @@
-@import "c/cssLibrary";
-h1 {
-    font-family: var(--pbs-font_branded);
-}
 
 .slds-vertical-tabs {
     height: 100vh; /* Set the height of the tabs to 100% of the viewport height */
@@ -16,4 +12,30 @@ h1 {
 .slds-vertical-tabs__content {
     flex: 1; /* Make the content area flexible to take up remaining space */
     overflow-y: auto; /* Add vertical scrollbar if needed */
+}
+
+h3{
+    font: var(--pbs-font_branded);
+    color: var(--pbs-text-color_dark);
+    font-size: 40px;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+c-tool-tip {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 10px); /* Position it to the right of the text with 10px margin */
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+.demo {
+    border: 1px solid black;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
 }
