@@ -2,3 +2,18 @@
 h1 {
     font-family: var(--pbs-font_branded);
 }
+
+.slds-vertical-tabs {
+    height: 100vh; /* Set the height of the tabs to 100% of the viewport height */
+    display: flex; /* Use flexbox to control the layout */
+}
+
+.slds-vertical-tabs__nav {
+    flex: 0 0 200px; /* Set the width of the nav to 200px and make it non-flexible */
+    overflow-y: auto; /* Add vertical scrollbar if needed */
+}
+
+.slds-vertical-tabs__content {
+    flex: 1; /* Make the content area flexible to take up remaining space */
+    overflow-y: auto; /* Add vertical scrollbar if needed */
+}

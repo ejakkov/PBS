@@ -1,11 +1,17 @@
-import { LightningElement, api, track } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 export default class ToolTip extends LightningElement {
-    @api iconType = 'utility:warning'; // Default icon type
+    @api iconType = 'utility:info'; // Default icon type
+    @api linkText = null; // Default link text
 
     renderedCallback(){
-        console.log(this.iconType);
+        console.log('isIconType: ', this.isIconType);
     }
+
+    get isIconType() {
+        return this.linkText == null;
+    }
+
     handleMouseEnter() {
         this.template.querySelector('.tooltip').classList.add('show');
     }
