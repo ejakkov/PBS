@@ -8,16 +8,16 @@
     background-color: var(--pbs-background-color);
     color: var(--pbs-color_white);
     visibility: hidden;
-    width: 250px;
+    width: 270px;
     text-align: center;
     border-radius: 6px;
     padding: 7px;
     position: absolute;
     z-index: 1;
-    bottom: 140% ; 
+    bottom: 160% ; 
     right: 0;
     left: 0.5;
-    transform: translate(89%); 
+    transform: translate(89.5%); 
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -41,12 +41,11 @@
     transform: translateX(50%);
 }
 .icon {
-    /* Your icon styles */
-    color: var(--pbs-color_white); /* Default color */
+    --slds-c-icon-color-foreground-default: blue;
   }
   
   .icon:hover {
-    color: red; /* Change the color to red when hovered */
+    --slds-c-icon-color-foreground-default: var(--pbs-background-color); 
   }
   
   .red {

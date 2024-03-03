@@ -1,17 +1,17 @@
 
 .slds-vertical-tabs {
-    height: 100vh; /* Set the height of the tabs to 100% of the viewport height */
-    display: flex; /* Use flexbox to control the layout */
+    height: 100vh; 
+    display: flex; 
 }
 
 .slds-vertical-tabs__nav {
-    flex: 0 0 200px; /* Set the width of the nav to 200px and make it non-flexible */
-    overflow-y: auto; /* Add vertical scrollbar if needed */
+    flex: 0 0 200px; 
+    overflow-y: auto;
 }
 
 .slds-vertical-tabs__content {
-    flex: 1; /* Make the content area flexible to take up remaining space */
-    overflow-y: auto; /* Add vertical scrollbar if needed */
+    flex: 1; 
+    overflow-y: auto; 
 }
 
 h3{
@@ -23,19 +23,22 @@ h3{
 .container {
     position: relative;
     display: inline-block;
+    justify-content: left;
+    align-items: left;
 }
 
 c-tool-tip {
     position: absolute;
     top: 50%;
-    left: calc(100% + 10px); /* Position it to the right of the text with 10px margin */
-    white-space: nowrap; /* Prevent line breaks */
+    left: calc(100% + 10px); 
 }
 
 .demo {
-    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
-    margin: auto;
-    text-align: center;
+    text-align: left;
     padding: 10px;
+    background-color: var(--pbs-color_white_2);
+    border-radius: 5px;
 }
