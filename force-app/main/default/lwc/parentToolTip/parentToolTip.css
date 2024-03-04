@@ -14,9 +14,9 @@ c-tool-tip {
 .demo {
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 70%;
     text-align: left;
-    padding: 10px;
+    padding: 25px;
     background-color: var(--pbs-color_white_2);
     border-radius: 5px;
 }

@@ -47,7 +47,7 @@
   .icon:hover {
     --slds-c-icon-color-foreground-default: var(--pbs-background-color); 
   }
-  
-  .red {
-      color: red;
-  }
+
+  .link-text {
+    text-wrap: nowrap;
+}

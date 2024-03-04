@@ -6,7 +6,7 @@
             </lightning-icon>
         </template>
         <template if:false={isIconType}>
-            <a href="javascript:void(0);" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>{linkText}</a>
+            <a href="javascript:void(0);" class="link-text" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>{linkText}</a>
         </template>
         <div class="tooltip">
             <slot name="tooltipText">Hover over the icon to see the tooltip</slot>
