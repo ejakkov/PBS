@@ -1,11 +1,22 @@
 .container {
     position: relative;
-    display: inline-block; 
+    display: inline-block;
+    justify-content: left;
+    align-items: left;
 }
 
 c-tool-tip {
     position: absolute;
-    top: 0;
-    left: 100%;
-    margin-left: 10px; 
+    top: 50%;
+    left: calc(100% + 10px); 
+}
+
+.demo {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: left;
+    padding: 10px;
+    background-color: var(--pbs-color_white_2);
+    border-radius: 5px;
 }

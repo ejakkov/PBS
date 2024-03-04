@@ -25,7 +25,6 @@
         </ul>
         <div class="slds-vertical-tabs__content slds-show" id="slds-vertical-tabs-0" role="tabpanel" aria-labelledby="slds-vertical-tabs-0__nav">
             <div class="slds-text-longform">
-                <h3 class="slds-text-heading_large slds-text-title_caps slds-align_absolute-center">Tool Tip</h3>
                 <div class="demo slds-align_absolute_center slds-box">
                     <!-- <div class="container">
                       <p class="slds-text-heading_large">Address</p>
@@ -37,12 +36,14 @@
                     <c-component-description>
                         <h2 slot="title">Tool Tip</h2>
                         <p slot="description">This is a Lightning Web Component template with slots for title, description, API attributes, demo, and code snippet.</p>
-                        <div slot="api-attributes">
-                            <c-api-attribute api-name="apiAttribute1" default-value="defaultValue1" description="Description 1"></c-api-attribute>
-                            <c-api-attribute api-name="apiAttribute2" default-value="defaultValue2" description="Description 2"></c-api-attribute>
-                            <!-- Additional api-attribute components can be added as needed -->
-                        </div>
-                        <p slot="demo">Demo: <c-parent-tool-tip></c-parent-tool-tip></p>
+                        <div slot="api-attribute">
+                            <span slot="api-attribute">Attribute1</span>
+                            <span slot="api-attribute">Attribute2</span>
+                            <span slot="api-attribute">Attribute3</span>
+                          </div>
+                        <p slot="demo">Demo: <c-parent-tool-tip></c-parent-tool-tip>
+                            
+                        </p>
 
                     </c-component-description>
                   </div>
