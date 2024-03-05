@@ -15,7 +15,6 @@
 }
 
 h3{
-    font: var(--pbs-font_branded);
     color: var(--pbs-text-color_dark);
     font-size: 40px;
 }
@@ -41,4 +40,8 @@ c-tool-tip {
     padding: 10px;
     background-color: var(--pbs-color_white_2);
     border-radius: 5px;
+}
+
+.page{
+    font: var(--pbs-font_branded);
 }

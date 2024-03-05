@@ -1,24 +1,44 @@
 <template>
     <c-component-description>
         <h2 slot="title">Tool Tip</h2>
-        <p slot="description">This is a Lightning Web Component template with slots for title, description, API attributes, demo, and code snippet.</p>
-        <table slot="api-attributes">
+        <p slot="description">This component is displayed equally on all pages of the portal. A round, blue icon with a white "i" for "information" appears.
+            When the cursor is hovered over it, a red information box opens with white text and the icon changes to red background.
+        </p>
+        <table slot="api-attributes" class="slds-align_absolute_center">
             <tr>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
+                <th>API Name</th>
+                <th>Default value</th>
+                <th>Description</th>
             </tr>
             <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
+                <td>icon-type</td>
+                <td>utility:info</td>
+                <td>Sets the icon type</td>
             </tr>
             <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
+                <td>link-text</td>
+                <td>null</td>
+                <td>Adds a link text instead of an icon</td>
             </tr>
         </table>
         <p slot="demo">Demo: <c-parent-tool-tip></c-parent-tool-tip></p>
+        <div slot="code-snippet">
+            <pre>
+                <div class="container">
+                    <template if:true={isIconType}>
+                        <lightning-icon class="icon" icon-name={iconType} size="x-small" alternative-text="Tooltip Icon"
+                            onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>
+                        </lightning-icon>
+                    </template>
+                    <template if:false={isIconType}>
+                        <a href="javascript:void(0);" class="link-text" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>{linkText}</a>
+                    </template>
+                    <div class="tooltip">
+                        <slot name="tooltipText">Hover over the icon to see the tooltip</slot>
+                    </div>
+                </div>
+            </pre>
+        </div>
     </c-component-description>
+
 </template>

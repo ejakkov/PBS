@@ -7,6 +7,7 @@
     font: var(--pbs-font_branded);
     background-color: var(--pbs-background-color);
     color: var(--pbs-color_white);
+    font-size: 13px;
     visibility: hidden;
     width: 270px;
     text-align: center;
@@ -14,12 +15,13 @@
     padding: 7px;
     position: absolute;
     z-index: 1;
-    bottom: 160% ; 
     right: 0;
     left: 0.5;
     transform: translate(89.5%); 
     opacity: 0;
     transition: opacity 0.3s;
+    bottom: 160%;
+    margin-bottom: 0px;
 }
 
 .tooltip.show {
