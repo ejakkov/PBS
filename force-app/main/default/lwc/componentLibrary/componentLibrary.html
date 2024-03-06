@@ -1,6 +1,13 @@
 <template>
     <div class="page slds-vertical-tabs">
         <ul class="slds-vertical-tabs__nav" role="tablist" aria-orientation="vertical">
+            <li class="slds-vertical-tabs__nav-item" title="Intro" role="presentation">
+                <a class="slds-vertical-tabs__link" href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="slds-vertical-tabs-intro" id="slds-vertical-tabs-intro__nav">
+                    <span class="slds-vertical-tabs__left-icon"></span>
+                    <span class="slds-truncate" title="Intro">Intro</span>
+                    <span class="slds-vertical-tabs__right-icon"></span>
+                </a>
+            </li>
             <li class="slds-vertical-tabs__nav-item slds-has-focus" title="Tab 1" role="presentation">
                 <a class="slds-vertical-tabs__link" href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="slds-vertical-tabs-0" id="slds-vertical-tabs-0__nav">
                     <span class="slds-vertical-tabs__left-icon"></span>
@@ -26,11 +33,9 @@
         <div class="slds-vertical-tabs__content slds-show" id="slds-vertical-tabs-0" role="tabpanel" aria-labelledby="slds-vertical-tabs-0__nav">
             <div class="slds-text-longform">
                 <div class="demo slds-align_absolute_center slds-box">
-
                     <div class="demo slds-align_absolute_center">
                         <c-tool-tip-description></c-tool-tip-description>
                     </div>
-                    
                   </div>
             </div>
         </div>
