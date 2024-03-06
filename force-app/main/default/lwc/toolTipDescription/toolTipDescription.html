@@ -21,23 +21,9 @@
                 <td>Adds a link text instead of an icon</td>
             </tr>
         </table>
-        <p slot="demo">Demo: <c-parent-tool-tip></c-parent-tool-tip></p>
+        <p slot="demo"><c-parent-tool-tip></c-parent-tool-tip></p>
         <div slot="code-snippet">
-            <pre>
-                <div class="container">
-                    <template if:true={isIconType}>
-                        <lightning-icon class="icon" icon-name={iconType} size="x-small" alternative-text="Tooltip Icon"
-                            onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>
-                        </lightning-icon>
-                    </template>
-                    <template if:false={isIconType}>
-                        <a href="javascript:void(0);" class="link-text" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>{linkText}</a>
-                    </template>
-                    <div class="tooltip">
-                        <slot name="tooltipText">Hover over the icon to see the tooltip</slot>
-                    </div>
-                </div>
-            </pre>
+            <lightning-formatted-rich-text value={myVal}></lightning-formatted-rich-text>
         </div>
     </c-component-description>
 

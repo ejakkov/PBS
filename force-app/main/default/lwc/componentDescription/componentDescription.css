@@ -45,3 +45,10 @@
     overflow-x: auto;
     margin-bottom: 24px; 
 }
+
+p{
+    font: var(--pbs-font_branded);
+    color: var(--pbs-text-color_dark);
+    font-size: 20px;
+
+}
