@@ -1,0 +1,30 @@
+<template>
+    <c-component-description>
+        <h2 slot="title">Tool Tip</h2>
+        <p slot="description">This component is displayed equally on all pages of the portal. A round, blue icon with a white "i" for "information" appears.
+            When the cursor is hovered over it, a red information box opens with white text and the icon changes to red background.
+        </p>
+        <table slot="api-attributes" class="slds-align_absolute_center">
+            <tr>
+                <th>API Name</th>
+                <th>Default value</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>icon-type</td>
+                <td>utility:info</td>
+                <td>Sets the icon type</td>
+            </tr>
+            <tr>
+                <td>link-text</td>
+                <td>null</td>
+                <td>Adds a link text instead of an icon</td>
+            </tr>
+        </table>
+        <p slot="demo"><c-parent-tool-tip></c-parent-tool-tip></p>
+        <div slot="code-snippet">
+            <lightning-formatted-rich-text value={myVal}></lightning-formatted-rich-text>
+        </div>
+    </c-component-description>
+
+</template>

@@ -1,0 +1,54 @@
+.component-container {
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    height: 100%;
+    padding-left: 60px;
+    padding-right: 70px;
+    
+}
+
+.component-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px; 
+    font: var(--pbs-font_branded);
+    color: var(--pbs-text-color_dark);
+    font-size: 40px;
+}
+
+
+.component-description {
+    margin-bottom: 24px; 
+    font-size: 20px;
+}
+
+.component-api-attributes {
+    margin-bottom: 24px; 
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    font-size: 18px;
+
+}
+
+.component-demo {
+    margin-bottom: 24px; 
+}
+
+.component-code-snippet {
+    font-family: monospace;
+    background-color: #f3f3f3;
+    padding: 16px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-bottom: 24px; 
+}
+
+p{
+    font: var(--pbs-font_branded);
+    color: var(--pbs-text-color_dark);
+    font-size: 20px;
+
+}

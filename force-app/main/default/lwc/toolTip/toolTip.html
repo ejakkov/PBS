@@ -1,0 +1,15 @@
+<template>
+    <div class="container">
+        <template if:true={isIconType}>
+            <lightning-icon class="icon" icon-name={iconType} size="x-small" alternative-text="Tooltip Icon"
+                onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>
+            </lightning-icon>
+        </template>
+        <template if:false={isIconType}>
+            <a href="javascript:void(0);" class="link-text" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>{linkText}</a>
+        </template>
+        <div class="tooltip">
+            <slot name="tooltipText">Hover over the icon to see the tooltip</slot>
+        </div>
+    </div>
+</template>

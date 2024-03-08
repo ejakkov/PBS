@@ -1,0 +1,47 @@
+
+.slds-vertical-tabs {
+    height: 100vh; 
+    display: flex; 
+}
+
+.slds-vertical-tabs__nav {
+    flex: 0 0 200px; 
+    overflow-y: auto;
+}
+
+.slds-vertical-tabs__content {
+    flex: 1; 
+    overflow-y: auto; 
+}
+
+h3{
+    color: var(--pbs-text-color_dark);
+    font-size: 40px;
+}
+
+.container {
+    position: relative;
+    display: inline-block;
+    justify-content: left;
+    align-items: left;
+}
+
+c-tool-tip {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 10px); 
+}
+
+.demo {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: left;
+    padding: 10px;
+    background-color: var(--pbs-color_white_2);
+    border-radius: 5px;
+}
+
+.page{
+    font: var(--pbs-font_branded);
+}

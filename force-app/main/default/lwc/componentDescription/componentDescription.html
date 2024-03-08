@@ -1,0 +1,21 @@
+<template>
+    <div class="component-container">
+        <div class="component-title slds-align_absolute_center slds-text-heading_large slds-text-title_caps">
+            <slot name="title">Component Title</slot>
+        </div>
+        <div class="component-description">
+            <slot name="description">Component Description</slot>
+        </div>
+        <div class="component-api-attributes slds-align_absolute_center">
+            <slot name="api-attributes"></slot>
+        </div>
+        <p>Demo: </p>
+        <div class="component-demo">
+            <slot name="demo">Component Demo</slot>
+        </div>
+        <p>Code snippet: </p>
+        <div class="component-code-snippet">
+            <slot name="code-snippet">Component Code Snippet</slot>
+        </div>
+    </div>
+</template>
