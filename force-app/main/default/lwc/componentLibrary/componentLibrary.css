@@ -26,11 +26,6 @@ h3{
     align-items: left;
 }
 
-c-tool-tip {
-    position: absolute;
-    top: 50%;
-    left: calc(100% + 10px); 
-}
 
 .demo {
     margin-left: auto;

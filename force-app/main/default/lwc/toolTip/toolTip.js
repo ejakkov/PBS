@@ -5,7 +5,7 @@ import { loadStyle } from 'lightning/platformResourceLoader';
 export default class ToolTip extends LightningElement {
     @api iconType = 'utility:info'; // Default icon type
     @api linkText = null; // Default link text
-    @track iconVariant = 'base';
+    @api link = "javascript:void(0);"; //Default link
 
     renderedCallback() {
         loadStyle(this, cssStyle);
@@ -17,12 +17,6 @@ export default class ToolTip extends LightningElement {
 
     handleMouseEnter(event) {
         this.template.querySelector('.tooltip').classList.add('show');
-        if (event.target.tagName === 'LIGHTNING-ICON') {
-            this.iconStyle = 'color: red;'; // Change icon color to red on hover
-        } else {
-            this.linkStyle = 'color: red;'; // Change link color to red on hover
-        }
-
     }
 
     handleMouseLeave() {

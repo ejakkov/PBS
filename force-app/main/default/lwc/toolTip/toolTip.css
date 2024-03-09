@@ -15,13 +15,12 @@
     padding: 7px;
     position: absolute;
     z-index: 1;
-    right: 0;
-    left: 0.5;
-    transform: translate(89.5%); 
+    right: 1;
     opacity: 0;
     transition: opacity 0.3s;
     bottom: 160%;
     margin-bottom: 0px;
+    transform: translateX(-11.5px);
 }
 
 .tooltip.show {
@@ -52,4 +51,5 @@
 
   .link-text {
     text-wrap: nowrap;
+    position: relative;
 }

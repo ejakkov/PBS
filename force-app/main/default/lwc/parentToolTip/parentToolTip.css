@@ -6,10 +6,14 @@
 }
 
 c-tool-tip {
-    position: absolute;
-    top: 50%;
-    left: calc(100% + 10px); 
+    display: relative;
+    font-size: 14px;
+    padding: 10px;
+    top: 50px;
 }
+
+
+
 
 .demo {
     margin-left: auto;
