@@ -5,15 +5,11 @@
     align-items: left;
 }
 
-c-tool-tip {
-    display: relative;
+c-tool-tip{
+    position: relative;
     font-size: 14px;
     padding: 10px;
-    top: 50px;
 }
-
-
-
 
 .demo {
     margin-left: auto;

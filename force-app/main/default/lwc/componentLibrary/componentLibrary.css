@@ -1,6 +1,6 @@
 
 .slds-vertical-tabs {
-    height: 100vh; 
+    height: auto; 
     display: flex; 
 }
 
@@ -39,4 +39,11 @@ h3{
 
 .page{
     font: var(--pbs-font_branded);
+}
+
+.slds-vertical-tabs__link .slds-truncate {
+    font: var(--pbs-font_branded);
+    font-size: 16px; 
+    font-weight: bold;
+    text-transform: uppercase;
 }

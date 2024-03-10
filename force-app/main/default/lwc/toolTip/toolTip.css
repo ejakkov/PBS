@@ -18,7 +18,7 @@
     right: 1;
     opacity: 0;
     transition: opacity 0.3s;
-    bottom: 160%;
+    bottom: 35px;
     margin-bottom: 0px;
     transform: translateX(-11.5px);
 }
@@ -41,9 +41,7 @@
     left: 0;
     transform: translateX(50%);
 }
-.icon {
-    --slds-c-icon-color-foreground-default: blue;
-  }
+
   
   .icon:hover {
     --slds-c-icon-color-foreground-default: var(--pbs-background-color); 
@@ -51,5 +49,10 @@
 
   .link-text {
     text-wrap: nowrap;
-    position: relative;
 }
+
+.link-text:hover {
+    color:  var(--pbs-background-color);
+    text-decoration: none;
+}
+
