@@ -28,7 +28,13 @@ export default class CardBase extends LightningElement {
     }
 
     get showSeparator() {
-        return this.variant !== 'C';
+        if(this.variant == 'B' || this.variant == 'C'){
+            return false; 
+        } else{
+            return true;
+        }
+        
+       
     }
     renderedCallback() {
         loadStyle(this, cssStyle);

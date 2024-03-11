@@ -2,7 +2,7 @@
     padding: 25px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #f9f9f9;
+    background-color:  #f9f9f9;
     height: 100%;
     padding-left: 60px;
     padding-right: 70px;
@@ -34,12 +34,18 @@
 }
 
 .component-demo {
-    margin-bottom: 24px; 
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+        text-align: left;
+        padding: 25px;
+        background-color: var(--pbs-color_white_2);
+        border-radius: 5px;
 }
 
 .component-code-snippet {
     font-family: monospace;
-    background-color: #f3f3f3;
+    background-color: #f2f2f2;
     padding: 16px;
     border-radius: 4px;
     overflow-x: auto;
@@ -47,8 +53,22 @@
 }
 
 p{
-    font: var(--pbs-font_branded);
     color: var(--pbs-text-color_dark);
     font-size: 20px;
 
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    
+}
+th, td {
+    border: 1px solid var(--pbs-color_black);
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+    text-align: center;
 }

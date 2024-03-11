@@ -29,36 +29,33 @@
 
 .card-footer {
     display: flex;
-    justify-content: center; /* or justify-content: flex-end; for right-aligned footer buttons */
+    justify-content: center;
 }
 
 .footer-buttons {
     display: flex;
 }
 
-/* For Variant A */
 .card.variant-a {
-    border: 1px solid grey;
+    border: 1px solid var(--pbs-color_grey);
 }
 
 .card-header.variant-a {
-    background-color: lightgrey;
+    background-color: var(--pbs-color_grey);
 }
 
-/* For Variant B */
 .card.variant-b {
-    border: 1px solid grey;
+    border: 1px solid var(--pbs-color_grey);
 }
 
 .card-header.variant-b {
-    background-color: lightgrey;
+    background-color: var(--pbs-color_grey);
 }
 
 .card.variant-b .card-body {
-    background-color: white;
+    background-color: var(--pbs-color_white);
 }
 
-/* For Variant C */
-.card.variant-c {
-    background-color: lightgrey;
+.card.variant-c .card-body{
+    background-color: var(--pbs-color_grey);
 }

@@ -7,7 +7,20 @@
             <slot name="description">Component Description</slot>
         </div>
         <div class="component-api-attributes slds-align_absolute_center">
-            <slot name="api-attributes"></slot>
+            <table>
+                <tr>
+                    <th>API Name</th>
+                    <th>Default value</th>
+                    <th>Description</th>
+                </tr>
+                <template for:each={apiAttributes} for:item="attribute">
+                    <tr key={attribute.id}>
+                        <td>{attribute.apiName}</td>
+                        <td>{attribute.defaultValue}</td>
+                        <td>{attribute.description}</td>
+                    </tr>
+                </template>
+            </table>
         </div>
         <p>Demo: </p>
         <div class="component-demo">
