@@ -1,0 +1,64 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    font: var(--pbs-font_branded);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.header-text{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--pbs-text-color_dark);
+}
+
+.action-buttons {
+    display: flex;
+}
+
+.card-body {
+    margin-bottom: 10px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center; /* or justify-content: flex-end; for right-aligned footer buttons */
+}
+
+.footer-buttons {
+    display: flex;
+}
+
+/* For Variant A */
+.card.variant-a {
+    border: 1px solid grey;
+}
+
+.card-header.variant-a {
+    background-color: lightgrey;
+}
+
+/* For Variant B */
+.card.variant-b {
+    border: 1px solid grey;
+}
+
+.card-header.variant-b {
+    background-color: lightgrey;
+}
+
+.card.variant-b .card-body {
+    background-color: white;
+}
+
+/* For Variant C */
+.card.variant-c {
+    background-color: lightgrey;
+}

@@ -1,0 +1,23 @@
+<template>
+    <div class={cardClass}>
+        <div class={headerClass}>
+            <slot name="header" class="header-text"></slot>
+            <div class="action-buttons">
+                <slot name="header-actions"></slot>
+            </div>
+        </div>
+        <div if:true={showSeparator}>
+            <c-line-separator></c-line-separator>
+        </div>
+        
+        <div class="card-body">
+            <slot name="body"></slot>
+        </div>
+        <div class="card-footer">
+            <div class="footer-buttons">
+                <slot name="footer-buttons"></slot>
+            </div>
+        </div>
+    </div>
+</template>
+
