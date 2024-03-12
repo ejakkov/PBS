@@ -6,7 +6,7 @@
     height: 100%;
     padding-left: 60px;
     padding-right: 70px;
-    
+    font: var(--pbs-font_branded);
 }
 
 .component-title {
