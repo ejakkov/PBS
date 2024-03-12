@@ -6,6 +6,12 @@
     font: var(--pbs-font_branded);
 }
 
+.custom-card {
+    padding: 20px;
+    margin-bottom: 20px;
+    font: var(--pbs-font_branded);
+}
+
 .card-header {
     display: flex;
     align-items: center;
@@ -14,8 +20,6 @@
 }
 
 .header-text{
-    font-size: 20px;
-    font-weight: bold;
     color: var(--pbs-text-color_dark);
 }
 
@@ -23,6 +27,9 @@
     display: flex;
 }
 
+.title{
+    font-size: 30px;
+}
 .card-body {
     margin-bottom: 10px;
 }
@@ -58,4 +65,10 @@
 
 .card.variant-c .card-body{
     background-color: var(--pbs-color_grey);
+}
+
+.card-title{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--pbs-text-color_dark);
 }

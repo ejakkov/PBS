@@ -4,6 +4,7 @@ import { loadStyle } from 'lightning/platformResourceLoader';
 
 export default class CardBase extends LightningElement {
     @api variant;
+    @api cardTitle;
 
     get cardClass() {
         if (this.variant === 'A') {
