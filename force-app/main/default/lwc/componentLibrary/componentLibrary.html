@@ -4,27 +4,27 @@
             <ul class="slds-vertical-tabs__nav" role="tablist">
                 <template for:each={tabs} for:item="tab">
                     <li key={tab.id} class="slds-vertical-tabs__nav-item" role="presentation">
-                        <a class="slds-vertical-tabs__link" href="#" role="tab" id={tab.id} aria-controls={tab.ariaControls} onclick={handleTabClick} data-tab-id={tab.dataTabId}>
+                        <a class="slds-vertical-tabs__link" href="#" role="tab" id={tab.id} onclick={handleTabClick}>
                             <span class="slds-truncate slds-align_absolute_center" title={tab.title}>{tab.title}</span>
                         </a>
                     </li>
                 </template>
-
             </ul>
-            <div class="slds-vertical-tabs__content slds-show" id="slds-vertical-tabs-0" role="tabpanel" aria-labelledby="slds-vertical-tabs-0__nav">
+            <div class="slds-vertical-tabs__content slds-show" id="slds-vertical-tabs-0" role="tabpanel" >
                 <div class="slds-text-longform">
-                    <div class="demo slds-align_absolute_center slds-box" data-tab-content="0">
+                    <div class="demo slds-align_absolute_center slds-box" >
                         <div class="demo slds-align_absolute_center">
                             <c-tool-tip-description></c-tool-tip-description>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="slds-vertical-tabs__content slds-hide" id="slds-vertical-tabs-1" role="tabpanel" aria-labelledby="slds-vertical-tabs-1__nav">
-                <div class="demo slds-align_absolute_center" data-tab-content="1">
+            <div class="slds-vertical-tabs__content slds-hide" id="slds-vertical-tabs-1" role="tabpanel">
+                <div class="demo slds-align_absolute_center" >
                     <c-card-base-description></c-card-base-description>
                 </div>
             </div>
+            
         </div>
     </div>
 </template>
