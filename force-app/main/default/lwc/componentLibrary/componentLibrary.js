@@ -4,20 +4,38 @@ import { loadStyle } from 'lightning/platformResourceLoader';
 
 export default class ComponentLibrary extends LightningElement {
  
+    @track selectedComponent = {
+        component: null,
+        instance: null
+    };
+
     tabs = [
         {
             id: "slds-vertical-tabs-0__nav",
             ariaControls: "slds-vertical-tabs-0",
             dataTabId: "0",
-            title: "Tool Tip"
+            title: "Tool Tip",
+            isActive: false // Add isActive property to each tab
         },
         {
             id: "slds-vertical-tabs-1__nav",
             ariaControls: "slds-vertical-tabs-1",
             dataTabId: "1",
-            title: "Card Base"
+            title: "Card Base",
+            isActive: false // Add isActive property to each tab
         }
     ];
+    isSelectedTab(tab) {
+        return selectedComponent.component === tab.dataTabId;
+    }
+    
+    // Later in your template or JavaScript logic where you need to check if the tab is selected:
+    
+
+
+    isSelectedTab(tab) {
+        return this.selectedComponent.component === tab.dataTabId;
+    }
 
     renderedCallback() {
         loadStyle(this, cssStyle);

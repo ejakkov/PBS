@@ -5,9 +5,9 @@
     align-items: left;
 }
 
-c-tool-tip{
+
+.help-text{
     position: relative;
     font-size: 14px;
     padding: 10px;
 }
-
