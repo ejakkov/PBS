@@ -1,7 +1,7 @@
 <template>
     <div class="cmp-library">
         <div class="slds-vertical-tabs">
-            <ul class="slds-vertical-tabs__nav" role="tablist">
+            <ul class="slds-vertical-tabs__nav" >
                 <template for:each={tabs} for:item="tab">
                     <li key={tab.id} class="slds-vertical-tabs__nav-item" role="presentation">
                         <a class="slds-vertical-tabs__link" href="#" role="tab" id={tab.id} onclick={handleTabClick}>
@@ -10,21 +10,15 @@
                     </li>
                 </template>
             </ul>
-            <div class="slds-vertical-tabs__content slds-show" id="slds-vertical-tabs-0" role="tabpanel" >
+            <div class="slds-vertical-tabs__content slds-show" id="slds-vertical-tabs-0" >
                 <div class="slds-text-longform">
-                    <div class="demo slds-align_absolute_center slds-box" >
-                        <div class="demo slds-align_absolute_center">
-                            <c-tool-tip-description></c-tool-tip-description>
-                        </div>
+                    <div class="demo slds-align_absolute_center" >
+                        <div class="container">
+                            <lwc:component lwc:is={componentConstructor}></lwc:component>
+                          </div>
                     </div>
                 </div>
             </div>
-            <div class="slds-vertical-tabs__content slds-hide" id="slds-vertical-tabs-1" role="tabpanel">
-                <div class="demo slds-align_absolute_center" >
-                    <c-card-base-description></c-card-base-description>
-                </div>
-            </div>
-            
         </div>
     </div>
 </template>

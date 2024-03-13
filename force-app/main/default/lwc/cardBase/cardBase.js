@@ -1,6 +1,5 @@
 import { LightningElement, api } from 'lwc';
-import cssStyle from '@salesforce/resourceUrl/PBS_CSS';
-import { loadStyle } from 'lightning/platformResourceLoader';
+
 
 export default class CardBase extends LightningElement {
     @api variant;
@@ -14,7 +13,7 @@ export default class CardBase extends LightningElement {
         } else if (this.variant === 'C') {
             return 'card variant-c';
         }
-        return 'card'; // default variant
+        return 'card'; 
     }
 
     get headerClass() {
@@ -25,7 +24,7 @@ export default class CardBase extends LightningElement {
         } else if (this.variant === 'C') {
             return 'card-header variant-c';
         }
-        return 'card-header'; // default variant
+        return 'card-header';
     }
 
     get showSeparator() {
@@ -37,7 +36,5 @@ export default class CardBase extends LightningElement {
         
        
     }
-    renderedCallback() {
-        loadStyle(this, cssStyle);
-    }
+
 }

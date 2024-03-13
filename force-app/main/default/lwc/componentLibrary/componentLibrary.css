@@ -14,11 +14,6 @@
     overflow-y: auto; 
 }
 
-h3{
-    color: var(--pbs-text-color_dark);
-    font-size: 40px;
-}
-
 .container {
     position: relative;
     display: inline-block;
@@ -27,7 +22,7 @@ h3{
 }
 
 
-.demo {
+.demo { 
     margin-left: auto;
     margin-right: auto;
     width: 90%;
@@ -38,17 +33,13 @@ h3{
 }
 
 .cmp-library{
-    font: var(--pbs-font_branded);
+    font-family: var(--pbs-font_branded);
 }
 
 .slds-vertical-tabs__link .slds-truncate {
-    font: var(--pbs-font_branded);
     font-size: 16px; 
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.custom-card{
-    width: 50%;
-}
 

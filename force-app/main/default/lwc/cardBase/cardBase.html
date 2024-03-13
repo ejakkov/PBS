@@ -1,4 +1,5 @@
 <template>
+    <div class="card">
     <div class={cardClass}>
         <div class={headerClass}>
             <slot name="header" class="header-text"></slot>
@@ -19,7 +20,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <lightning-card class="custom-card">
         <div class="card-title">
             <h1>{cardTitle}</h1>
