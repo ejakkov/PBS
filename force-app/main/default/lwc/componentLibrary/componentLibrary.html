@@ -3,8 +3,8 @@
         <div class="slds-vertical-tabs">
             <ul class="slds-vertical-tabs__nav" >
                 <template for:each={tabs} for:item="tab">
-                    <li key={tab.id} class="slds-vertical-tabs__nav-item" role="presentation">
-                        <a class="slds-vertical-tabs__link" href="#" role="tab" id={tab.id} onclick={handleTabClick}>
+                    <li key={tab.id} class="slds-vertical-tabs__nav-item">
+                        <a class="slds-vertical-tabs__link" href="#" id={tab.id} onclick={handleTabClick}>
                             <span class="slds-truncate slds-align_absolute_center" title={tab.title}>{tab.title}</span>
                         </a>
                     </li>
