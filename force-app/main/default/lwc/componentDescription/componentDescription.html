@@ -1,33 +1,38 @@
 <template>
-    <div class="component-container">
-        <div class="component-title slds-align_absolute_center slds-text-heading_large slds-text-title_caps">
+    <div class="component-container slds-p-around_x-large">
+        <div class="component-title slds-align_absolute_center slds-text-heading_large slds-text-title_caps slds-text-align_center slds-m-bottom_large">
             <slot name="title">Component Title</slot>
         </div>
-        <div class="component-description">
+        <div class="component-description slds-m-bottom_large">
             <slot name="description">Component Description</slot>
         </div>
-        <div class="component-api-attributes slds-align_absolute_center">
-            <table>
-                <tr>
-                    <th>API Name</th>
-                    <th>Default value</th>
-                    <th>Description</th>
-                </tr>
-                <template for:each={apiAttributes} for:item="attribute">
-                    <tr key={attribute.id}>
-                        <td>{attribute.apiName}</td>
-                        <td>{attribute.defaultValue}</td>
-                        <td>{attribute.description}</td>
+        <div class="slds-grid_align-center">
+            <table class="slds-table slds-table_bordered slds-p-around_large slds-m-bottom_large">
+                <thead>
+                    <tr class="slds-text-title_caps slds-p-around_large">
+                        <th scope="col" class="slds-text-align_center slds-text-heading_medium">API Name</th>
+                        <th scope="col" class="slds-text-align_center slds-text-heading_medium" >Default value</th>
+                        <th scope="col" class="slds-text-align_center slds-text-heading_medium">Description</th>
                     </tr>
-                </template>
+                </thead>
+                <tbody>
+                    <template for:each={apiAttributes} for:item="attribute">
+                        <tr key={attribute.id} class="slds-p-around_large slds-text-align_left" >
+                            <td class="slds-p-around_large">{attribute.apiName}</td>
+                            <td class="slds-p-around_large">{attribute.defaultValue}</td>
+                            <td class="slds-p-around_large">{attribute.description}</td>
+                        </tr>
+                    </template>
+                </tbody>
             </table>
+            
         </div>
         <p>Demo: </p>
-        <div class="component-demo">
+        <div class="component-demo slds-p-around_medium slds-m-bottom_large slds-align_absolute-center">
             <slot name="demo">Component Demo</slot>
         </div>
         <p>Code snippet: </p>
-        <div class="component-code-snippet">
+        <div class="component-code-snippet slds-p-around_small">
             <slot name="code-snippet">Component Code Snippet</slot>
         </div>
     </div>

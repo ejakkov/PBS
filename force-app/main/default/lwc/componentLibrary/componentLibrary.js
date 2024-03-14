@@ -1,4 +1,4 @@
-import { LightningElement, track, api } from 'lwc';
+import { LightningElement } from 'lwc';
 import cssStyle from '@salesforce/resourceUrl/PBS_CSS';
 import { loadStyle } from 'lightning/platformResourceLoader';
 export default class ComponentLibrary extends LightningElement {
@@ -22,7 +22,6 @@ export default class ComponentLibrary extends LightningElement {
 
     renderedCallback() {
         loadStyle(this, cssStyle);
-        const tabLinks = this.template.querySelectorAll('.slds-vertical-tabs__link');
     }
 
     async handleTabClick(event) {

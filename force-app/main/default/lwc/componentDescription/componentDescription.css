@@ -1,52 +1,30 @@
 .component-container {
-    padding: 25px;
     border: 1px solid var(--pbs-color_white_4);
     border-radius: 4px;
     background-color:  var(--pbs-color_white_4); 
     height: 100%;
-    padding-left: 60px;
-    padding-right: 70px;
 }
 
 .component-title {
-    text-align: center;
     font-weight: bold;
-    margin-bottom: 20px; 
     color: var(--pbs-text-color_dark);
     font-size: 40px;
 }
 
 .component-description {
-    margin-bottom: 24px; 
     font-size: 20px;
 }
 
-.component-api-attributes {
-    margin-bottom: 24px; 
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    font-size: 18px;
-
-}
 
 .component-demo {
-    margin-left: auto;
-    margin-right: auto;
     width: 70%;
-    text-align: left;
-    padding: 25px;
     background-color: var(--pbs-color_white_3);
     border-radius: 5px;
 }
 
 .component-code-snippet {
-    font-family: monospace;
     background-color: var(--pbs-color_white_3);
-    padding: 16px;
     border-radius: 4px;
-    overflow-x: auto;
-    margin-bottom: 24px; 
 }
 
 p{
@@ -57,14 +35,12 @@ p{
 table {
     border-collapse: collapse;
     width: 80%;
-    
 }
-th, td {
-    border: 1px solid var(--pbs-color_black);
-    padding: 8px;
-    text-align: left;
-}
+
 th {
     background-color: var(--pbs-color_white_3); 
-    text-align: center;
+}
+
+td{
+    font-size: 18px;
 }
