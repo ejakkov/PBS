@@ -1,3 +1,6 @@
+.cmp-library{
+    font-family: var(--pbs-font_branded);
+}
 
 .slds-vertical-tabs {
     height: auto; 
@@ -14,26 +17,10 @@
     overflow-y: auto; 
 }
 
-.container {
-    position: relative;
-    display: inline-block;
-    justify-content: left;
-    align-items: left;
-}
-
-
 .demo { 
-    margin-left: auto;
-    margin-right: auto;
     width: 90%;
-    text-align: left;
-    padding: 10px;
     background-color: var(--pbs-color_white_2);
-    border-radius: 5px;
-}
-
-.cmp-library{
-    font-family: var(--pbs-font_branded);
+    border-radius: var(--lwc-borderRadiusMedium);
 }
 
 .slds-vertical-tabs__link .slds-truncate {

@@ -1,21 +1,23 @@
-import { LightningElement, api, track } from 'lwc';
+import { LightningElement, api} from 'lwc';
 
 export default class ToolTip extends LightningElement {
-    @api iconType = 'utility:info'; // Default icon type
-    @api linkText = null; // Default link text
-    @api link = "javascript:void(0);"; //Default link
+    @api iconType = 'utility:info';
+    @api linkText = null;
+    @api link = "javascript:void(0);";
 
     get isIconType() {
         return this.linkText == null;
     }
 
-    handleMouseEnter(event) {
-        this.template.querySelector('.tooltip').classList.add('show');
-    }
-
-    handleMouseLeave() {
-        this.template.querySelector('.tooltip').classList.remove('show');
-
-    }
+    handleMouseAction(event) {
+        const tooltip = this.template.querySelector(".tooltip");
+        if (event.type == "mouseover") {
+            tooltip.classList.remove("slds-fall-into-ground");
+            tooltip.classList.add("slds-rise-from-ground");
+        } else {
+            tooltip.classList.remove("slds-rise-from-ground");
+            tooltip.classList.add("slds-fall-into-ground");
+        }
+      }
 
 }

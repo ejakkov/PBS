@@ -30,7 +30,7 @@ export default class ComponentLibrary extends LightningElement {
         const id= idUnparsed.split('-')[0];
         import(id)
             .then(({ default: ctor }) => this.componentConstructor = ctor)
-            .catch(err => console.log('Error importing component'));
+            .catch(err => console.log('Error importing component', err));
       
     }
 }

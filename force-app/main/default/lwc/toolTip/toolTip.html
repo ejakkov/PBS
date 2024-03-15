@@ -1,17 +1,17 @@
 <template>
     <div class="container">
         <template if:true={isIconType}>
-            <lightning-icon class="icon" icon-name={iconType} size="x-small" alternative-text="Tooltip Icon"
-                onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>
+            <lightning-icon class="icon" icon-name={iconType} size="x-small"
+            onmouseover={handleMouseAction} onmouseout={handleMouseAction}>
             </lightning-icon>
         </template>
         <template if:false={isIconType}>
-            <a href={link} class="link-text" onmouseenter={handleMouseEnter} onmouseleave={handleMouseLeave}>{linkText}</a>
+            <a href={link} class="link-text" onmouseover={handleMouseAction} onmouseout={handleMouseAction}>{linkText}</a>
         </template>
-        <div class="tooltip slds-popover slds-popover_tooltip slds-nubbin_bottom-left" role="tooltip" id="help">
-            <div class="slds-popover__body">
-                <slot name="tooltipText">Hover over the icon to see the tooltip</slot>
-            </div>
-          </div>
+        <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left tooltip slds-slide-from-bottom-to-top slds-fall-into-ground">
+        <div class="slds-popover__body">
+            <slot name="tooltipText">Default text</slot>
+        </div>
+    </div>
     </div>
 </template>

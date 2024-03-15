@@ -6,7 +6,7 @@
         <div class="component-description slds-m-bottom_large">
             <slot name="description">Component Description</slot>
         </div>
-        <div class="slds-grid_align-center">
+        <div class="slds-align_absolute-center">
             <table class="slds-table slds-table_bordered slds-p-around_large slds-m-bottom_large">
                 <thead>
                     <tr class="slds-text-title_caps slds-p-around_large">
@@ -28,9 +28,11 @@
             
         </div>
         <p>Demo: </p>
-        <div class="component-demo slds-p-around_medium slds-m-bottom_large slds-align_absolute-center">
-            <slot name="demo">Component Demo</slot>
-        </div>
+            <div class="slds-grid slds-align_absolute-center slds-m-bottom_large">
+                    <div class="component-demo" >
+                        <slot name="demo">Component Demo</slot>
+                </div>
+            </div>
         <p>Code snippet: </p>
         <div class="component-code-snippet slds-p-around_small">
             <slot name="code-snippet">Component Code Snippet</slot>

@@ -1,6 +1,6 @@
 <template>
     <div class="cmp-library">
-        <div class="slds-vertical-tabs">
+        <div class="slds-vertical-tabs ">
             <ul class="slds-vertical-tabs__nav" >
                 <template for:each={tabs} for:item="tab">
                     <li key={tab.id} class="slds-vertical-tabs__nav-item">
@@ -12,7 +12,7 @@
             </ul>
             <div class="slds-vertical-tabs__content slds-show" id="slds-vertical-tabs-0" >
                 <div class="slds-text-longform">
-                    <div class="demo slds-align_absolute_center" >
+                    <div class="demo slds-align_absolute-center slds-var-p-around_small" >
                         <div class="container">
                             <lwc:component lwc:is={componentConstructor}></lwc:component>
                           </div>
