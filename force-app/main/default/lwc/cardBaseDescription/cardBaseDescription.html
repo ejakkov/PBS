@@ -27,7 +27,7 @@
             </tr>
         </table>
         <div slot="demo">
-            <c-card-base class="custom-card">
+            <c-card-base class="custom-card" variant="A" show-separator="true">
                 <div slot="header">Header Content</div>
                 <div slot="header-actions">
                     <lightning-button class="brand-pbs" variant="destructive" label="Action 1"></lightning-button>
@@ -39,17 +39,7 @@
                     <lightning-button variant="destructive-text" label="Accept"></lightning-button>
                 </div>
             </c-card-base>
-
-            
-<div style="padding-left:2rem;padding-top:5rem;position:relative">
-    <button class="slds-button" aria-describedby="help" aria-disabled="true">Help Text</button>
-    <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-slide-from-bottom-to-top" role="tooltip" id="help" style="position:absolute;top:-4px;left:35px">
-      <div class="slds-popover__body">Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi.</div>
-    </div>
-  </div>
-        
         </div>
-
         <div slot="code-snippet">
             <lightning-formatted-rich-text value={myVal}></lightning-formatted-rich-text>
         </div>

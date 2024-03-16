@@ -4,37 +4,36 @@ import { LightningElement, api } from 'lwc';
 export default class CardBase extends LightningElement {
     @api variant;
     @api cardTitle;
+    @api footerCentered = false;
+    cardClassVar = 'card';
+    cardHeaderVar = 'card-header';
+    @api showSeparator = false;
 
-    get cardClass() {
-        if (this.variant === 'A') {
-            return 'card variant-a';
-        } else if (this.variant === 'B') {
-            return 'card variant-b';
-        } else if (this.variant === 'C') {
-            return 'card variant-c';
+    renderedCallback(){
+        if(this.footerCentered){
+            const footer = this.template.querySelector(".footer-buttons");
+            footer.classList.add("slds-align_absolute-center");
         }
-        return 'card'; 
+        const card = this.template.querySelector(".card");
+        if (this.variant === 'A') {
+            card.classList.add("variant-a");
+        } else if (this.variant === 'B') {
+            card.classList.add("variant-b");
+        } else if (this.variant === 'C') {
+            card.classList.add("variant-c");
+        }
     }
 
     get headerClass() {
         if (this.variant === 'A') {
-            return 'card-header variant-a';
+            this.cardHeaderVar = 'card-header variant-a';
         } else if (this.variant === 'B') {
-            return 'card-header variant-b';
+            this.cardHeaderVar = 'card-header variant-b';
         } else if (this.variant === 'C') {
-            return 'card-header variant-c';
+            this.cardHeaderVar = 'card-header variant-c';
         }
-        return 'card-header';
+        return this.cardHeaderVar;
     }
 
-    get showSeparator() {
-        if(this.variant == 'B' || this.variant == 'C'){
-            return false; 
-        } else{
-            return true;
-        }
-        
-       
-    }
 
 }
