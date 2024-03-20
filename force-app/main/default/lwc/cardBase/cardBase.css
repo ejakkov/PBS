@@ -10,14 +10,9 @@
     justify-content: space-between;
 }
 
-
 .header-text{
     color: var(--pbs-text-color_dark);
     font-weight: bold;
-}
-
-.title{
-    font-size: 30px;
 }
 
 .card-footer {
@@ -25,28 +20,18 @@
     justify-content: right;
 }
 
-.card.variant-a {
-    border: 1px solid var(--pbs-color_grey);
-}
-
-.card.variant-b {
-    border: 1px solid var(--pbs-color_grey);
-}
-
 .card-header.variant-b {
-    background-color: var(--pbs-color_grey);
+    background-color: var(--pbs-color_light_gray);
+    border-radius: var(--lwc-borderRadiusMedium);
 }
 
-.card.variant-b .card-body {
-    background-color: var(--pbs-color_white);
-}
 
 .card.variant-c .card-body{
-    background-color: var(--pbs-color_grey);
+    background-color: var(--pbs-color_light_gray);
+    border-radius: var(--lwc-borderRadiusMedium);
 }
 
 .card-title{
-    font-size: 20px;
     font-weight: bold;
     color: var(--pbs-text-color_dark);
 }

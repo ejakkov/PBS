@@ -18,9 +18,9 @@
                 <tbody>
                     <template for:each={apiAttributes} for:item="attribute">
                         <tr key={attribute.id} class="slds-p-around_small slds-text-align_left" >
-                            <td class="slds-p-around_large">{attribute.apiName}</td>
-                            <td class="slds-p-around_large">{attribute.defaultValue}</td>
-                            <td class="slds-p-around_large">{attribute.description}</td>
+                            <td class="slds-p-around_large slds-text-align_center">{attribute.apiName}</td>
+                            <td class="slds-p-around_large slds-text-align_center">{attribute.defaultValue}</td>
+                            <td class="slds-p-around_large slds-text-align_center">{attribute.description}</td>
                         </tr>
                     </template>
                 </tbody>

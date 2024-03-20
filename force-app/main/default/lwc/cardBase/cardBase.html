@@ -1,19 +1,19 @@
 <template>
     <div class="main">
-    <div class="card">
-        <div class={headerClass}>
+    <div class="card slds-p-top_x-small slds-p-left_x-small slds-p-right_x-small">
+        <div class="card-header ">
             <div class="header-top slds-p-around_small ">
                 <slot name="header" class="header-text slds-text-heading_medium">Default header text</slot>
-                <slot name="subheader"> Default subheader text</slot>
+                <slot name="subheader slds-text-heading_small"> Default subheader text</slot>
             </div>
             <div class="action-buttons slds-p-around_small">
                     <slot name="header-actions"></slot>
                 </div>
         </div>
-        <div if:true={showSeparator}>
+        <div if:true={isSeparatorVisible}>
             <c-line-separator></c-line-separator>
         </div>
-        <div class="card-body slds-p-around_small">
+        <div class="card-body slds-p-top_small slds-p-left_small slds-p-right_small">
             <slot name="body"></slot>
         </div>
         <div class="card-footer">
