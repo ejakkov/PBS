@@ -15,9 +15,6 @@ export default class CardBaseDescription extends LightningElement {
     &lt;/div&gt;
 &lt;/c-card-base&gt;</code></pre>`;
 
-    defaultBodyText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit amet ex ut mi pulvinar volutpat. Aliquam hendrerit nibh quis nulla molestie'
-                            + 'venenatis. Quisque maximus, purus ut dapibus iaculis, lorem tortor rutrum neque, ut aliquam urna urna vitae ipsum.'
-                                +'Nullam varius eros sit amet velit pulvinar, sit amet mollis libero malesuada.';
     apiAttributes = [
         {
             id: '1',
