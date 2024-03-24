@@ -1,23 +1,25 @@
 <template>
     <div class="main">
     <div class="card slds-p-top_x-small slds-p-left_x-small slds-p-right_x-small">
-        <div class="card-header ">
+        <div class="card-header">
             <div class="header-top slds-p-around_small ">
                 <slot name="header" class="header-text slds-text-heading_medium">Default header text</slot>
                 <slot name="subheader slds-text-heading_small"> Default subheader text</slot>
             </div>
-            <div class="action-buttons slds-p-around_small">
+            <div class="action-buttons slds-p-around_small slds-m-around_xx-small">
                     <slot name="header-actions"></slot>
-                </div>
+            </div>
         </div>
         <div if:true={isSeparatorVisible}>
             <c-line-separator></c-line-separator>
         </div>
         <div class="card-body slds-p-top_small slds-p-left_small slds-p-right_small">
-            <slot name="body">{defaultBodyText}</slot>
+            <slot name="body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Duis sit amet ex ut mi pulvinar volutpat. Aliquam hendrerit nibh quis nulla molestie 
+            </slot>
         </div>
-        <div class="card-footer">
-            <div class="footer-buttons slds-p-around_small">
+        <div class="card-footer slds-p-around_small">
+            <div class="footer-buttons ">
                 <slot name="footer-buttons"></slot>
             </div>
         </div>
