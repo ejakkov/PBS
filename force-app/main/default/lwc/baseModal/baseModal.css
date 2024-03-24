@@ -1,0 +1,4 @@
+
+.slds-modal__content {
+    border-bottom: none; /* Add this line to remove the default line separator */
+}
