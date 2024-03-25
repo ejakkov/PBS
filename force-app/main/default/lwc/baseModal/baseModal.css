@@ -1,4 +1,12 @@
 
 .slds-modal__content {
-    border-bottom: none; /* Add this line to remove the default line separator */
+    border-bottom: none;
+}
+
+.pbs-header {
+    background-color: white;
+}
+
+.header-text{
+    font-weight: bold;
 }

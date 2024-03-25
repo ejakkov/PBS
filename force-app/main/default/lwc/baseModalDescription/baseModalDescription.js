@@ -1,8 +1,9 @@
 import { LightningElement, track } from 'lwc';
 
 export default class BaseModalDescription extends LightningElement {
-    @track isItOpen = false;
+    @track isOpen = false;
     handleClick(){
-        this.isItOpen = true;
+        this.isOpen = true;
+        console.log(this.isOpen);
     }
 }
