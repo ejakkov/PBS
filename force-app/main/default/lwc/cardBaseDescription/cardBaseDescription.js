@@ -4,10 +4,14 @@ export default class CardBaseDescription extends LightningElement {
     codeSnippet = `
     <pre><code>&lt;c-card-base is-footer-centered="true" is-separator-visible="true"&gt;
     &lt;div slot="header"&gt;Header Content&lt;/div&gt;
+    &lt;div slot="subheader"&gt;Subheader Content&lt;/div&gt;
     &lt;div slot="header-actions"&gt;
         &lt;lightning-button class="brand-pbs slds-m-left_xx-small" variant="destructive" label="Action 1"&gt;&lt;/lightning-button&gt;
         &lt;lightning-button class="brand-outline-pbs slds-m-left_xx-small" variant="destructive-text" label="Action 2"&gt;&lt;/lightning-button&gt;
     &lt;/div&gt;
+    &lt;div slot="body"&gt Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Duis sit amet ex ut mi pulvinar volutpat. Aliquam hendrerit nibh quis nulla molestie
+    &lt;/div&gt
     &lt;div slot="footer-buttons"&gt;
         &lt;lightning-button class="slds-m-left_xx-small" variant="destructive" label="Exit"&gt;&lt;/lightning-button&gt;
         &lt;lightning-button class="slds-m-left_xx-small" variant="destructive-text" label="Accept"&gt;&lt;/lightning-button&gt;
