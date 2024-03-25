@@ -1,6 +1,6 @@
 <template>
   <template if:true={isOpen}>
-     <section  class="slds-modal slds-fade-in-open">
+     <section  class="slds-modal slds-fade-in-open" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01">
       <div class="slds-modal__container">
         <div class="pbs-header">
           <div class="header-text slds-text-align_center slds-p-around_small" >
@@ -16,9 +16,11 @@
             aute consequat ipsum magna exercitation reprehenderit magna. Tempor cupidatat consequat elit dolor adipisicing.</p>
         </div>
 
-        <div class="slds-modal__footer">
+        <div class="pbs-footer">
+          <c-line-separator separator-color="var(--pbs-color_grey)"></c-line-separator>
+          <div class="footer-button slds-p-around_small">
           <button onclick={closeModal} class="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
-          <button class="slds-button slds-button_brand">Save</button>
+          </div>
         </div>
       </div>
     </section>

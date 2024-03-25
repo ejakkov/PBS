@@ -10,3 +10,12 @@
 .header-text{
     font-weight: bold;
 }
+
+.pbs-footer{
+    background-color: white;
+}
+
+.footer-button{
+    display: flex;
+    justify-content: flex-end;
+}

@@ -9,8 +9,10 @@
             </ul>
         </div>
         <div slot="demo">
-            <lightning-button variant="destructive-text" label="Accept" onclick={handleClick}></lightning-button>
-            <c-base-modal is-open={isOpen}></c-base-modal>
+            <lightning-button variant="destructive-text" label="Accept" onclick={handleOpenModal}></lightning-button>
+            <c-base-modal></c-base-modal>
+            <lightning-button variant="destructive-text" label="Close" onclick={handleClickClose}></lightning-button>
+
         </div>
         <div slot="code-snippet">
             <lightning-formatted-rich-text value={codeSnippet}></lightning-formatted-rich-text>
