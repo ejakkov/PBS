@@ -15,6 +15,10 @@ export default class ComponentLibrary extends LightningElement {
         {
             id: "c/baseModalDescription",
             title: "Base Modal",
+        },
+        {
+            id: "c/errorModalDescription",
+            title: "Error Modal",
         }
     ];
 

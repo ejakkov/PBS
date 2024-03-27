@@ -1,0 +1,32 @@
+
+.slds-modal__content {
+    border-bottom: none;
+}
+
+.pbs-header {
+    background-color: white;
+}
+
+.header-text{
+    font-weight: bold;
+}
+
+.pbs-footer{
+    background-color: white;
+}
+
+.footer-button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.slds-button{
+    --slds-c-button-neutral-color-background: var(--pbs-color_gray);
+    --slds-c-button-text-color: var(--pbs-color_white);
+    --slds-c-button-text-color-hover: var(--pbs-color_white);
+    --slds-c-button-neutral-color-background-hover: var(--pbs-color_grey);
+}
+
+.slds-modal{
+    width: max-content;
+}
