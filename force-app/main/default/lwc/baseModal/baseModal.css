@@ -4,7 +4,7 @@
 }
 
 .pbs-header {
-    background-color: white;
+    background-color: var(--pbs-color_white);
 }
 
 .header-text{
@@ -12,7 +12,7 @@
 }
 
 .pbs-footer{
-    background-color: white;
+    background-color: var(--pbs-color_white);
 }
 
 .footer-button{
