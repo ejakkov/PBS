@@ -10,5 +10,4 @@ export default class BaseModal extends LightningElement {
     closeModal() {
         this.isOpen = false;
     }
-
 }
