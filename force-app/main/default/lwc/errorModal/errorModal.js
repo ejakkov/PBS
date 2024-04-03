@@ -15,7 +15,7 @@ export default class ErrorModal extends LightningElement {
         closeBtn,
         contactBtn
       };
-    isModalOpen = false;
+    @api isModalOpen = false;
     subscription = null;
     @wire (MessageContext) messageContext
     connectedCallback() {
@@ -30,13 +30,14 @@ export default class ErrorModal extends LightningElement {
 
     disconnectedCallback() {
         this.handleUnsubscribe();
+        this.isModalOpen = false;
     }
 
     handleSubscribe() {
         if(!this.subscription) {
             this.subscription = subscribe(this.messageContext, CustomMessageChannel,
-                (parameter)=>{
-                    this.isModalOpen=parameter.isModalOpen;
+                ()=>{
+                    this.isModalOpen= true;      
                 }
                 )
         }
@@ -45,9 +46,10 @@ export default class ErrorModal extends LightningElement {
     handleUnsubscribe() {
         unsubscribe(this.subscription);
         this.subscription=null;
+        this.isModalOpen = false;
     }
 
     closeModal() {
-        this.isModalOpen = false;
+      this.isModalOpen = false;
     }
 }

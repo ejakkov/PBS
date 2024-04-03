@@ -18,7 +18,7 @@
             <c-line-separator separator-color="var(--pbs-color_grey)"></c-line-separator>
           </div>
           <div class="footer-button slds-p-around_small">
-            <button onclick={closeModal} class="slds-button slds-button_neutral">Close</button>
+            <slot name="footerContent"></slot>
           </div>
         </div>
       </div>

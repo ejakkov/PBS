@@ -1,9 +1,9 @@
-import { LightningElement } from 'lwc';
-
+import { LightningElement, wire } from 'lwc';
+import { publish, MessageContext } from "lightning/messageService";
+import CustomMessageChannel from "@salesforce/messageChannel/customMessageChannel__c";
 export default class ErrorModalDescription extends LightningElement {
     
     codeSnippet = `<pre><code>&lt;c-error-modal&gt&lt;/c-error-modal&gt;
-&lt;c-custom-event-service&gt&lt;/c-custom-event-service&gt;
 </code></pre>`;
     
     apiAttributes = [
@@ -20,5 +20,13 @@ export default class ErrorModalDescription extends LightningElement {
             description: 'Sets a custom body for the error'
         }
     ];
-
+    @wire(MessageContext)
+    messagecontext;
+  
+    modal = this.template.querySelector("c-error-modal");
+  
+    handleModal() {
+        publish(this.messagecontext, CustomMessageChannel);
+    }
+  
 }

@@ -9,7 +9,7 @@ export default class BaseModalDescription extends LightningElement {
         beatae vitae dicta sunt explicabo.
     &lt;/span&gt;
 &lt;/c-base-modal&gt;</code></pre>`;
-    
+    isOpen = false;
     apiAttributes = [
         {
             id: '1',
@@ -22,5 +22,12 @@ export default class BaseModalDescription extends LightningElement {
     handleOpenModal() { 
         const modal = this.template.querySelector("c-base-modal");
         modal.open();
+        this.isOpen = true;
       }
+
+      closeModal() {
+        this.isOpen = false;
+      }
+    
+
 }

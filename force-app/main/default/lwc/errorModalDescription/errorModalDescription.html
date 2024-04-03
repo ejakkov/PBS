@@ -1,10 +1,10 @@
 <template>
     <c-component-description card-title="This is the title" api-attributes = {apiAttributes}>
         <h2 slot="title">Error Modal</h2>
-        <div slot="description">Error modal component with ability to set its content - body and header - via slot.  Triggerable using JS service.</div>
+        <div slot="description">Error modal component with ability to set its content - body and header - via slot.  Triggerable using a JS service.</div>
         <div slot="demo">
+            <lightning-button class = "slds-align_absolute-center slds-p-around_small" label="Click to throw an error" variant="destructive-text" onclick={handleModal}></lightning-button>
             <c-error-modal></c-error-modal>
-            <c-custom-event-service></c-custom-event-service>
         </div>
         <div slot="code-snippet">
             <lightning-formatted-rich-text value={codeSnippet}></lightning-formatted-rich-text>
