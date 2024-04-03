@@ -6,8 +6,9 @@ import headerText from "@salesforce/label/c.PBS_Error_Header";
 import closeBtn from "@salesforce/label/c.PBS_Error_CloseBtn";
 import contactBtn from "@salesforce/label/c.PBS_Error_ContactBtn";
 
-
 export default class ErrorModal extends LightningElement {
+    @api customHeader;
+    @api customBody;
     label = {
         errorMessage,
         headerText,
@@ -16,24 +17,26 @@ export default class ErrorModal extends LightningElement {
       };
     isModalOpen = false;
     subscription = null;
-    name='';
     @wire (MessageContext) messageContext
     connectedCallback() {
         this.handleSubscribe();
+        if (this.customHeader) {
+            this.label.headerText = this.customHeader;
+        }
+        if (this.customBody) {
+            this.label.errorMessage = this.customBody;
+        }
     }
 
     disconnectedCallback() {
         this.handleUnsubscribe();
     }
-    
 
     handleSubscribe() {
         if(!this.subscription) {
-            console.log('subscriiibee');
             this.subscription = subscribe(this.messageContext, CustomMessageChannel,
                 (parameter)=>{
                     this.isModalOpen=parameter.isModalOpen;
-                    console.log('name issss',this.name);
                 }
                 )
         }
@@ -43,11 +46,6 @@ export default class ErrorModal extends LightningElement {
         unsubscribe(this.subscription);
         this.subscription=null;
     }
-
-
-    @api open() {
-    this.isOpen = true;
-  }
 
     closeModal() {
         this.isModalOpen = false;

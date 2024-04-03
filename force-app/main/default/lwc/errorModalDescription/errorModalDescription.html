@@ -1,9 +1,8 @@
 <template>
     <c-component-description card-title="This is the title" api-attributes = {apiAttributes}>
-        <h2 slot="title">Card Base</h2>
-        <div slot="description"> Modal component with ability to set its content - body and header - via slot.</div>
+        <h2 slot="title">Error Modal</h2>
+        <div slot="description">Error modal component with ability to set its content - body and header - via slot.  Triggerable using JS service.</div>
         <div slot="demo">
-            <lightning-button class="slds-p-around_small slds-align_absolute-center" variant="destructive-text" label="Click to open the modal" onclick={handleOpenModal}></lightning-button>
             <c-error-modal></c-error-modal>
             <c-custom-event-service></c-custom-event-service>
         </div>
