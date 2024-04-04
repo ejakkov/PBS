@@ -36,8 +36,8 @@ export default class ErrorModal extends LightningElement {
     handleSubscribe() {
         if(!this.subscription) {
             this.subscription = subscribe(this.messageContext, CustomMessageChannel,
-                ()=>{
-                    this.isModalOpen= true;      
+                (parameter)=>{
+                    this.isModalOpen= parameter.isModalOpen;      
                 }
                 )
         }
