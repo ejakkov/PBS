@@ -1,5 +1,5 @@
 <template>
-  <c-base-modal is-open={isModalOpen}>
+  <c-base-modal>
       <div slot="headerText">
           {label.headerText}
       </div>
@@ -8,7 +8,11 @@
       </div>
       <div slot="footerContent">
         <button onclick={closeModal} class="slds-button slds-button_success">{label.closeBtn}</button>
-        <button class="slds-button slds-button_destructive">{label.contactBtn}</button>
+        <template if:true={allowSubmit}>
+          <button onclick={openContactUs} class="slds-button slds-button_destructive">{label.contactBtn}</button>
+        </template>
+        
       </div>
   </c-base-modal>
+  <c-contact-us-modal></c-contact-us-modal>
 </template>

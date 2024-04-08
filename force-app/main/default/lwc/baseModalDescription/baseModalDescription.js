@@ -22,11 +22,11 @@ export default class BaseModalDescription extends LightningElement {
     handleOpenModal() { 
         const modal = this.template.querySelector("c-base-modal");
         modal.open();
-        this.isOpen = true;
       }
 
       closeModal() {
-        this.isOpen = false;
+        const modal = this.template.querySelector("c-base-modal");
+        modal.close();
       }
     
 

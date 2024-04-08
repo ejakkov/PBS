@@ -1,12 +1,22 @@
+
 import { LightningElement, wire } from 'lwc';
 import { publish, MessageContext } from 'lightning/messageService';
-import CustomMessageChannel from '@salesforce/messageChannel/CustomMessageChannel__c';
+import CUSTOM_MESSAGE_CHANNEL from '@salesforce/messageChannel/CustomMessageChannel__c';
+
 export default class ErrorModalService extends LightningElement {
     @wire(MessageContext)
     messageContext;
-    isModalOpen = true;
-    publishEvent() {
-        let payload = {isModalOpen:this.isModalOpen};
-        publish(this.messageContext, CustomMessageChannel, payload);
+
+    renderedCallback() {
+        this.handleClick();
+    }
+
+    handleClick() {
+        if (this.messageContext) {
+            console.log('Message Context available');
+            // Implement your logic here
+        }
     }
 }
+
+export { ErrorModalService };

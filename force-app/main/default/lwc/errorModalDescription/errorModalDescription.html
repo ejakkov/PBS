@@ -4,7 +4,7 @@
         <div slot="description">Error modal component with ability to set its content - body and header - via slot.  Triggerable using a JS service.</div>
         <div slot="demo">
             <lightning-button class = "slds-align_absolute-center slds-p-around_small" label="Click to throw an error" variant="destructive-text" onclick={handleModal}></lightning-button>
-            <c-error-modal></c-error-modal>
+            <c-error-modal allow-submit="true"></c-error-modal>
         </div>
         <div slot="code-snippet">
             <lightning-formatted-rich-text value={codeSnippet}></lightning-formatted-rich-text>

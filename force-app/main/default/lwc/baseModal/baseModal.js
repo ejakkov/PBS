@@ -1,13 +1,13 @@
 import { LightningElement, api } from 'lwc';
 
 export default class BaseModal extends LightningElement {
-    @api isOpen = false;
+    isOpen = false;
     
     @api open() {
     this.isOpen = true;
   }
 
-    closeModal() {
+    @api close() {
         this.isOpen = false;
     }
 }

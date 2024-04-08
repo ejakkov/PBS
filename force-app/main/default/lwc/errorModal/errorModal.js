@@ -1,12 +1,14 @@
 import { MessageContext, subscribe, unsubscribe } from 'lightning/messageService';
 import { LightningElement, api, wire } from 'lwc';
-import CustomMessageChannel from '@salesforce/messageChannel/customMessageChannel__c';
 import errorMessage from "@salesforce/label/c.PBS_Error_Message";
 import headerText from "@salesforce/label/c.PBS_Error_Header";
 import closeBtn from "@salesforce/label/c.PBS_Error_CloseBtn";
 import contactBtn from "@salesforce/label/c.PBS_Error_ContactBtn";
+import CUSTOM_MESSAGE_CHANNEL from '@salesforce/messageChannel/CustomMessageChannel__c';
 
 export default class ErrorModal extends LightningElement {
+
+    @api allowSubmit;
     @api customHeader;
     @api customBody;
     label = {
@@ -35,9 +37,13 @@ export default class ErrorModal extends LightningElement {
 
     handleSubscribe() {
         if(!this.subscription) {
-            this.subscription = subscribe(this.messageContext, CustomMessageChannel,
+            this.subscription = subscribe(this.messageContext, CUSTOM_MESSAGE_CHANNEL,
                 (parameter)=>{
-                    this.isModalOpen= parameter.isModalOpen;      
+                    if (parameter.targetModal == 'Error Modal'){
+                        const modal = this.template.querySelector("c-base-modal");
+                        modal.open();
+                    }
+                    
                 }
                 )
         }
@@ -51,5 +57,13 @@ export default class ErrorModal extends LightningElement {
 
     closeModal() {
       this.isModalOpen = false;
+      const modal = this.template.querySelector("c-base-modal");
+      modal.close();
+    }
+
+    openContactUs() {
+        console.log('contact us');
+        let payload = {targetModal:'Contact Us Modal'};
+        publish(this.messageContext, CUSTOM_MESSAGE_CHANNEL, payload);
     }
 }
