@@ -20,7 +20,7 @@ export default class ErrorModalDescription extends LightningElement {
         }
     ];
     handleModal() {
-        errorModalService.handleClick();
+        errorModalService.openErrorModal();
     }
   
 }

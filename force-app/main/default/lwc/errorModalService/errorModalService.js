@@ -9,7 +9,7 @@ class ErrorModalService {
 
     messageContext = createMessageContext();
 
-    handleClick() {
+    openErrorModal() {
         let payload = {
                        conBtn: contactBtn,
                        errMsg: errorMessage,
