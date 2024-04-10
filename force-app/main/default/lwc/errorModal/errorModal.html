@@ -1,17 +1,16 @@
 <template>
   <c-base-modal>
       <div slot="headerText">
-          {label.headerText}
+          {headerText}
       </div>
       <div slot="body">
-          {label.errorMessage}
+          {errorMessage}
       </div>
       <div slot="footerContent">
-        <button onclick={closeModal} class="slds-button slds-button_success">{label.closeBtn}</button>
+        <button onclick={closeModal} class="slds-button slds-button_success">{closeButton}</button>
         <template if:true={allowSubmit}>
-          <button onclick={openContactUs} class="slds-button slds-button_destructive">{label.contactBtn}</button>
-        </template>
-        
+          <button onclick={openContactUs} class="slds-button slds-button_destructive">{contactButton}</button>
+        </template> 
       </div>
   </c-base-modal>
   <c-contact-us-modal></c-contact-us-modal>

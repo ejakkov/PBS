@@ -1,9 +1,5 @@
 import { MessageContext, subscribe, unsubscribe } from 'lightning/messageService';
 import { LightningElement, api, wire } from 'lwc';
-import errorMessage from "@salesforce/label/c.PBS_Error_Message";
-import headerText from "@salesforce/label/c.PBS_Error_Header";
-import closeBtn from "@salesforce/label/c.PBS_Error_CloseBtn";
-import contactBtn from "@salesforce/label/c.PBS_Error_ContactBtn";
 import CUSTOM_MESSAGE_CHANNEL from '@salesforce/messageChannel/CustomMessageChannel__c';
 
 export default class ErrorModal extends LightningElement {
@@ -11,13 +7,11 @@ export default class ErrorModal extends LightningElement {
     @api allowSubmit;
     @api customHeader;
     @api customBody;
-    label = {
-        errorMessage,
-        headerText,
-        closeBtn,
-        contactBtn
-      };
-    @api isModalOpen = false;
+
+    errorMessage;
+    headerText;
+    closeButton;
+    contactButton;
     subscription = null;
     @wire (MessageContext) messageContext
     connectedCallback() {
@@ -32,18 +26,18 @@ export default class ErrorModal extends LightningElement {
 
     disconnectedCallback() {
         this.handleUnsubscribe();
-        this.isModalOpen = false;
     }
 
     handleSubscribe() {
         if(!this.subscription) {
             this.subscription = subscribe(this.messageContext, CUSTOM_MESSAGE_CHANNEL,
                 (parameter)=>{
-                    if (parameter.targetModal == 'Error Modal'){
                         const modal = this.template.querySelector("c-base-modal");
+                        this.errorMessage = parameter.errMsg;
+                        this.headerText = parameter.headerTxt;
+                        this.closeButton = parameter.clBtn;
+                        this.contactButton = parameter.conBtn;
                         modal.open();
-                    }
-                    
                 }
                 )
         }
@@ -52,18 +46,11 @@ export default class ErrorModal extends LightningElement {
     handleUnsubscribe() {
         unsubscribe(this.subscription);
         this.subscription=null;
-        this.isModalOpen = false;
     }
 
     closeModal() {
-      this.isModalOpen = false;
       const modal = this.template.querySelector("c-base-modal");
       modal.close();
     }
 
-    openContactUs() {
-        console.log('contact us');
-        let payload = {targetModal:'Contact Us Modal'};
-        publish(this.messageContext, CUSTOM_MESSAGE_CHANNEL, payload);
-    }
 }
