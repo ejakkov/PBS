@@ -4,9 +4,7 @@ import CUSTOM_MESSAGE_CHANNEL from '@salesforce/messageChannel/CustomMessageChan
 
 export default class ErrorModal extends LightningElement {
 
-    @api allowSubmit;
-    @api customHeader;
-    @api customBody;
+
 
     errorMessage;
     headerText;
@@ -16,12 +14,6 @@ export default class ErrorModal extends LightningElement {
     @wire (MessageContext) messageContext
     connectedCallback() {
         this.handleSubscribe();
-        if (this.customHeader) {
-            this.label.headerText = this.customHeader;
-        }
-        if (this.customBody) {
-            this.label.errorMessage = this.customBody;
-        }
     }
 
     disconnectedCallback() {

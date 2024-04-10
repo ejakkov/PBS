@@ -8,12 +8,22 @@ import contactBtn from "@salesforce/label/c.PBS_Error_ContactBtn";
 class ErrorModalService {
 
     messageContext = createMessageContext();
-
-    openErrorModal() {
+    header = headerText;
+    body = errorMessage;
+    openErrorModal(customParameters) {
+        if (customParameters != undefined){
+             if (customParameters.customHeader != undefined) {
+                this.header = customParameters.customHeader;
+            }
+            if (customParameters.customBody != undefined) {
+                this.body = customParameters.customBody;
+            }
+        }
+       
         let payload = {
                        conBtn: contactBtn,
-                       errMsg: errorMessage,
-                       headerTxt: headerText,
+                       errMsg: this.body,
+                       headerTxt: this.header,
                        clBtn: closeBtn
                        };
         publish(this.messageContext, CUSTOM_MESSAGE_CHANNEL, payload);
