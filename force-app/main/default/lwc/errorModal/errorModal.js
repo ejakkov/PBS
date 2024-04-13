@@ -1,11 +1,10 @@
 import { MessageContext, subscribe, unsubscribe } from 'lightning/messageService';
 import { LightningElement, api, wire } from 'lwc';
-import CUSTOM_MESSAGE_CHANNEL from '@salesforce/messageChannel/CustomMessageChannel__c';
+import ERROR_MESSAGE_CHANNEL from '@salesforce/messageChannel/errorMessageChannel__c';
+import errorModalService from "c/errorModalService";
 
 export default class ErrorModal extends LightningElement {
-
-
-
+    allowSubmit;
     errorMessage;
     headerText;
     closeButton;
@@ -22,13 +21,15 @@ export default class ErrorModal extends LightningElement {
 
     handleSubscribe() {
         if(!this.subscription) {
-            this.subscription = subscribe(this.messageContext, CUSTOM_MESSAGE_CHANNEL,
+            this.subscription = subscribe(this.messageContext, ERROR_MESSAGE_CHANNEL,
                 (parameter)=>{
                         const modal = this.template.querySelector("c-base-modal");
+                        console.log(parameter)
                         this.errorMessage = parameter.errMsg;
                         this.headerText = parameter.headerTxt;
                         this.closeButton = parameter.clBtn;
                         this.contactButton = parameter.conBtn;
+                        this.allowSubmit = parameter.allowSub;
                         modal.open();
                 }
                 )
@@ -45,4 +46,7 @@ export default class ErrorModal extends LightningElement {
       modal.close();
     }
 
+    openContactUs() {
+        errorModalService.openContactUs();
+    }
 }

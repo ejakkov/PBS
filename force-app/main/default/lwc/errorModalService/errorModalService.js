@@ -1,5 +1,6 @@
 import { createMessageContext, publish } from "lightning/messageService";
-import CUSTOM_MESSAGE_CHANNEL from '@salesforce/messageChannel/CustomMessageChannel__c';
+import ERROR_MESSAGE_CHANNEL from '@salesforce/messageChannel/errorMessageChannel__c';
+import CONTACT_US_MESSAGE_CHANNEL from '@salesforce/messageChannel/contactUsMessageChannel__c';
 import errorMessage from "@salesforce/label/c.PBS_Error_Message";
 import headerText from "@salesforce/label/c.PBS_Error_Header";
 import closeBtn from "@salesforce/label/c.PBS_Error_CloseBtn";
@@ -10,13 +11,17 @@ class ErrorModalService {
     messageContext = createMessageContext();
     header = headerText;
     body = errorMessage;
+    allowSubmit = true;
     openErrorModal(customParameters) {
-        if (customParameters != undefined){
-             if (customParameters.customHeader != undefined) {
+        if (customParameters){
+             if (customParameters.customHeader) {
                 this.header = customParameters.customHeader;
             }
-            if (customParameters.customBody != undefined) {
+            if (customParameters.customBody) {
                 this.body = customParameters.customBody;
+            }
+            if (customParameters.allowSubmit == false){
+                this.allowSubmit = false;
             }
         }
        
@@ -24,11 +29,14 @@ class ErrorModalService {
                        conBtn: contactBtn,
                        errMsg: this.body,
                        headerTxt: this.header,
-                       clBtn: closeBtn
+                       clBtn: closeBtn,
+                       allowSub: this.allowSubmit
                        };
-        publish(this.messageContext, CUSTOM_MESSAGE_CHANNEL, payload);
+        publish(this.messageContext, ERROR_MESSAGE_CHANNEL, payload);
+    }
 
-        
+    openContactUs() {
+        publish(this.messageContext, CONTACT_US_MESSAGE_CHANNEL);
     }
 
 }

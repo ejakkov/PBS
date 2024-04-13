@@ -1,14 +1,33 @@
 public with sharing class CreateCase {
-    // @AuraEnabled(cacheable=true)
-    public static String getMoviesPosterURL(String descriptionPar, String emailPar) {
-        return one;
+
+    @AuraEnabled
+    public static String createCaseFromForm(String descriptionPar, String emailPar) {
         String subject = 'New inquiry from Customer portal';
         String description = descriptionPar;
-        Contact con = [SELECT Id FROM Contact WHERE email =:emailPar];
-        String status = 'New';
-        String priority = 'Low';
         String email = emailPar;
-        
+        Contact con = null;
+
+        if (Schema.SObjectType.Contact.isAccessible()) {
+            
+            List<Contact> matchingContacts = [SELECT Id FROM Contact WHERE Email = :email LIMIT 1];
+            
+            if (!matchingContacts.isEmpty()) {
+                con = matchingContacts[0];
+            }
+        }
+
+        Case caseToAdd = new Case();
+        caseToAdd.Subject = subject;
+        caseToAdd.Description = description;
+        caseToAdd.Status = 'New';
+        caseToAdd.Priority = 'Low';
+        caseToAdd.SuppliedEmail = email;
+
+        if (con != null) {
+            caseToAdd.ContactId = con.Id;
+        }
+
+        insert caseToAdd;
+        return 'Success';
     }
-  
 }

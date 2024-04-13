@@ -1,83 +1,77 @@
 import { LightningElement, api, wire, track } from 'lwc';
 import { MessageContext, subscribe, unsubscribe } from 'lightning/messageService';
-import CUSTOM_MESSAGE_CHANNEL from '@salesforce/messageChannel/CustomMessageChannel__c';
+import CONTACT_US_MESSAGE_CHANNEL from '@salesforce/messageChannel/contactUsMessageChannel__c';
+import createCase from '@salesforce/apex/CreateCase.createCaseFromForm';
 
 export default class ContactUsModal extends LightningElement {
-    // @api isModalOpen = false;
-    // @wire(MessageContext)
-    // messageContext;
-    // connectedCallback() {
-    //     this.handleSubscribe();
-    //     if (this.customHeader) {
-    //         this.label.headerText = this.customHeader;
-    //     }
-    //     if (this.customBody) {
-    //         this.label.errorMessage = this.customBody;
-    //     }
-    // }
+    @wire(MessageContext)
 
-    // disconnectedCallback() {
-    //     this.handleUnsubscribe();
-    //     this.isModalOpen = false;
-    // }
+       messageContext;
+    connectedCallback() {
+        this.handleSubscribe();
+    }
 
-    // handleSubscribe() {
-    //     console.log('handle subscribe from contact us')
-    //     if(!this.subscription) {
-    //         this.subscription = subscribe(this.messageContext, CUSTOM_MESSAGE_CHANNEL,
-    //             (parameter)=>{
-    //                 console.log('subscribed from contact us')
-    //                 const modal = this.template.querySelector("c-base-modal");
-    //                 modal.open()
-    //                 // if (parameter.targetModal == 'Contact Us Modal' ){
-    //                 //    
-    //                 //    ; 
-    //                 // } else{
-    //                 //     this.handleUnsubscribe();
-    //                 // }
-                    
-    //             }
-    //             )
-    //     }
-    // }
+    disconnectedCallback() {
+        this.handleUnsubscribe();
+    }
 
-    // handleUnsubscribe() {
-    //     unsubscribe(this.subscription);
-    //     this.subscription=null;
-    //     this.isModalOpen = false;
-    // }
+    handleSubscribe() {
+        if(!this.subscription) {
+            this.subscription = subscribe(this.messageContext, CONTACT_US_MESSAGE_CHANNEL,
+                ()=>{
+                    const modal = this.template.querySelector("c-base-modal");
+                    modal.open()
+                }
+                )
+        }
+    }
 
-    // @track textValue = '';
-    // @track isSubmitDisabled = true;
-    // @track emailValid = false;
+    handleUnsubscribe() {
+        unsubscribe(this.subscription);
+        this.subscription=null;
+    }
 
-    // @track email;
-    // @track description;
+    @track textValue = '';
+    @track isSubmitDisabled = true;
+    @track emailValid = false;
+
+    @track email;
+    @track description;
 
 
-    // handleTextChange(event) {
-    //     this.textValue = event.target.value;
-    //     this.checkFormValidity();
-    // }
+    handleTextChange(event) {
+        this.textValue = event.target.value;
+        this.checkFormValidity();
+    }
 
-    // handleEmailChange(event) {
-    //     const emailInput = event.target;
-    //     this.emailValid = emailInput.checkValidity();
-    //     this.checkFormValidity();
-    // }
+    handleEmailChange(event) {
+        const emailInput = event.target;
+        this.emailValid = emailInput.checkValidity();
+        this.checkFormValidity();
+    }
 
-    // checkFormValidity() {
-    //     this.isSubmitDisabled = !this.emailValid || this.textValue.length < 3;
-    // }
+    checkFormValidity() {
+        this.isSubmitDisabled = !this.emailValid || this.textValue.length < 3;
+    }
 
 
-    // closeModal() {
-    //   this.isModalOpen = false;
-    //   const modal = this.template.querySelector("c-base-modal");
-    //   modal.close();
-    // }
+    closeModal() {
+      const modal = this.template.querySelector("c-base-modal");
+      modal.close();
+    }
 
-    // handleSubmit() {
-    //     this.email = 
-    // }
+    handleSubmit() {
+        console.log('handleSubmit');
+        createCase({ descriptionPar: this.textValue, emailPar: this.email })
+            .then(result => {
+                this.textValue = '';
+                this.email = '';
+                this.emailValid = false;
+                this.isSubmitDisabled = true;
+                this.closeModal();
+            })
+            .catch(error => {
+                console.error('Error creating case:', error);
+            });
+    }
 }
