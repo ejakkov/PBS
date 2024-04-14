@@ -6,12 +6,12 @@
         <div slot="body">
             <div class="slds-p-around_medium lgc-bg">
                 <lightning-input
-                    type="email"
                     label="Please confirm your email address:"
                     placeholder="Type here..."
                     required
                     onchange={handleEmailChange}
                 ></lightning-input>
+                <div class="slds-text-color_error slds-text-body_small">{emailError}</div>
             </div>
             <div class="slds-p-left_medium slds-p-right_medium slds-p-bottom_medium lgc-bg">
                 <lightning-textarea

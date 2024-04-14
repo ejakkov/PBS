@@ -30,4 +30,13 @@ public with sharing class CreateCase {
         insert caseToAdd;
         return 'Success';
     }
+
+    @AuraEnabled
+    public static String createCaseAutoSubmission() {
+
+        Case newCase = new Case (Status = 'New', Origin = 'Web', Description = 'Auto-submission');
+
+        insert newCase;
+        return 'Success';
+    }
 }

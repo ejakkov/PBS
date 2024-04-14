@@ -2,6 +2,7 @@ import { LightningElement, api, wire, track } from 'lwc';
 import { MessageContext, subscribe, unsubscribe } from 'lightning/messageService';
 import CONTACT_US_MESSAGE_CHANNEL from '@salesforce/messageChannel/contactUsMessageChannel__c';
 import createCase from '@salesforce/apex/CreateCase.createCaseFromForm';
+import validationService from 'c/validationService';
 
 export default class ContactUsModal extends LightningElement {
     @wire(MessageContext)
@@ -35,8 +36,9 @@ export default class ContactUsModal extends LightningElement {
     @track isSubmitDisabled = true;
     @track emailValid = false;
 
-    @track email;
-    @track description;
+    emailError = '';
+    email;
+    description;
 
 
     handleTextChange(event) {
@@ -45,8 +47,15 @@ export default class ContactUsModal extends LightningElement {
     }
 
     handleEmailChange(event) {
-        const emailInput = event.target;
-        this.emailValid = emailInput.checkValidity();
+        const emailInput = event.target.value;
+        this.emailValid = validationService.isValidEmail(emailInput);
+
+        if (this.emailValid == false) {
+            this.emailError = 'Please enter a valid email address.';
+        } else {
+            this.emailError = '';
+            this.email = this.emailInput;
+        }
         this.checkFormValidity();
     }
 
@@ -61,8 +70,7 @@ export default class ContactUsModal extends LightningElement {
     }
 
     handleSubmit() {
-        console.log('handleSubmit');
-        createCase({ descriptionPar: this.textValue, emailPar: this.email })
+        createCase({ descriptionPar: this.description, emailPar: this.email })
             .then(result => {
                 this.textValue = '';
                 this.email = '';

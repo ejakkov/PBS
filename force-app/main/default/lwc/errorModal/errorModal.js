@@ -2,8 +2,9 @@ import { MessageContext, subscribe, unsubscribe } from 'lightning/messageService
 import { LightningElement, api, wire } from 'lwc';
 import ERROR_MESSAGE_CHANNEL from '@salesforce/messageChannel/errorMessageChannel__c';
 import errorModalService from "c/errorModalService";
-
+import createCaseAutomatically from '@salesforce/apex/CreateCase.createCaseAutoSubmission';
 export default class ErrorModal extends LightningElement {
+    autoSubmission = false;
     allowSubmit;
     errorMessage;
     headerText;
@@ -30,6 +31,7 @@ export default class ErrorModal extends LightningElement {
                         this.closeButton = parameter.clBtn;
                         this.contactButton = parameter.conBtn;
                         this.allowSubmit = parameter.allowSub;
+                        this.autoSubmission = parameter.autoSubm;
                         modal.open();
                 }
                 )
@@ -44,6 +46,15 @@ export default class ErrorModal extends LightningElement {
     closeModal() {
       const modal = this.template.querySelector("c-base-modal");
       modal.close();
+      if (this.autoSubmission) {
+        createCaseAutomatically()
+            .then(result => {
+                console.log('Case created successfully');
+            })
+            .catch(error => {
+                console.error('Error creating case:', error);
+            });
+      }
     }
 
     openContactUs() {

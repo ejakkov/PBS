@@ -12,6 +12,7 @@ class ErrorModalService {
     header = headerText;
     body = errorMessage;
     allowSubmit = true;
+    autoSubmission = false;
     openErrorModal(customParameters) {
         if (customParameters){
              if (customParameters.customHeader) {
@@ -20,7 +21,11 @@ class ErrorModalService {
             if (customParameters.customBody) {
                 this.body = customParameters.customBody;
             }
-            if (customParameters.allowSubmit == false){
+            if (customParameters.allowSubmit == false) {
+                this.allowSubmit = false;
+            }
+            if (customParameters.autoSubmission == true) {
+                this.autoSubmission = true;
                 this.allowSubmit = false;
             }
         }
@@ -30,7 +35,8 @@ class ErrorModalService {
                        errMsg: this.body,
                        headerTxt: this.header,
                        clBtn: closeBtn,
-                       allowSub: this.allowSubmit
+                       allowSub: this.allowSubmit,
+                       autoSubm: this.autoSubmission
                        };
         publish(this.messageContext, ERROR_MESSAGE_CHANNEL, payload);
     }
