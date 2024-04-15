@@ -1,4 +1,4 @@
-import { LightningElement, api, wire, track } from 'lwc';
+import { LightningElement, wire, track } from 'lwc';
 import { MessageContext, subscribe, unsubscribe } from 'lightning/messageService';
 import CONTACT_US_MESSAGE_CHANNEL from '@salesforce/messageChannel/contactUsMessageChannel__c';
 import createCase from '@salesforce/apex/CreateCase.createCaseFromForm';
@@ -33,6 +33,7 @@ export default class ContactUsModal extends LightningElement {
     }
 
     @track textValue = '';
+    @track emailInput = '';
     @track isSubmitDisabled = true;
     @track emailValid = false;
 
@@ -47,14 +48,13 @@ export default class ContactUsModal extends LightningElement {
     }
 
     handleEmailChange(event) {
-        const emailInput = event.target.value;
-        this.emailValid = validationService.isValidEmail(emailInput);
+        this.emailInput = event.target.value;
+        this.emailValid = validationService.isValidEmail(this.emailInput);
 
         if (this.emailValid == false) {
             this.emailError = 'Please enter a valid email address.';
         } else {
             this.emailError = '';
-            this.email = this.emailInput;
         }
         this.checkFormValidity();
     }
@@ -70,6 +70,8 @@ export default class ContactUsModal extends LightningElement {
     }
 
     handleSubmit() {
+        this.description = this.textValue;
+        this.email = this.emailInput;
         createCase({ descriptionPar: this.description, emailPar: this.email })
             .then(result => {
                 this.textValue = '';

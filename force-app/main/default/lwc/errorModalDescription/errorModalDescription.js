@@ -8,15 +8,9 @@ export default class ErrorModalDescription extends LightningElement {
     apiAttributes = [
         {
             id: '1',
-            apiName: 'customHeader',
+            apiName: '-',
             defaultValue: '-',
-            description: 'Sets a custom header for the error'
-        },
-        {
-            id: '2',
-            apiName: 'customBody',
-            defaultValue: '-',
-            description: 'Sets a custom body for the error'
+            description: '-'
         }
     ];
     handleModal() {

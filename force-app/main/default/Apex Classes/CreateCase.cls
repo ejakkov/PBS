@@ -6,13 +6,14 @@ public with sharing class CreateCase {
         String description = descriptionPar;
         String email = emailPar;
         Contact con = null;
-
+        System.debug(descriptionPar + emailPar);
         if (Schema.SObjectType.Contact.isAccessible()) {
             
             List<Contact> matchingContacts = [SELECT Id FROM Contact WHERE Email = :email LIMIT 1];
-            
+            System.debug(matchingContacts);
             if (!matchingContacts.isEmpty()) {
                 con = matchingContacts[0];
+                System.debug(con);
             }
         }
 
@@ -24,6 +25,7 @@ public with sharing class CreateCase {
         caseToAdd.SuppliedEmail = email;
 
         if (con != null) {
+            System.debug('con is not null');
             caseToAdd.ContactId = con.Id;
         }
 
