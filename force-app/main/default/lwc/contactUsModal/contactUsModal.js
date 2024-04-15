@@ -1,4 +1,4 @@
-import { LightningElement, wire, track } from 'lwc';
+import { LightningElement, wire} from 'lwc';
 import { MessageContext, subscribe, unsubscribe } from 'lightning/messageService';
 import CONTACT_US_MESSAGE_CHANNEL from '@salesforce/messageChannel/contactUsMessageChannel__c';
 import createCase from '@salesforce/apex/CreateCase.createCaseFromForm';
@@ -8,6 +8,18 @@ export default class ContactUsModal extends LightningElement {
     @wire(MessageContext)
 
        messageContext;
+       
+    descriptionValue = '';
+    emailValue = '';
+    isSubmitDisabled = true;
+    emailValid = false;
+    emailError = '';
+    submitBtnText;
+    closeBtnText;
+    typingPlaceholder;
+    emailLabel;
+    descriptionLabel;
+    headerText;
     connectedCallback() {
         this.handleSubscribe();
     }
@@ -19,8 +31,14 @@ export default class ContactUsModal extends LightningElement {
     handleSubscribe() {
         if(!this.subscription) {
             this.subscription = subscribe(this.messageContext, CONTACT_US_MESSAGE_CHANNEL,
-                ()=>{
+                (parameter)=>{
                     const modal = this.template.querySelector("c-base-modal");
+                    this.submitBtnText = parameter.submBtn;
+                    this.closeBtnText = parameter.clBtn;
+                    this.typingPlaceholder = parameter.typPlc;
+                    this.emailLabel = parameter.emLbl;
+                    this.descriptionLabel = parameter.descLbl;
+                    this.headerText = parameter.headerTxt;
                     modal.open()
                 }
                 )
@@ -32,35 +50,27 @@ export default class ContactUsModal extends LightningElement {
         this.subscription=null;
     }
 
-    @track textValue = '';
-    @track emailInput = '';
-    @track isSubmitDisabled = true;
-    @track emailValid = false;
-
-    emailError = '';
-    email;
-    description;
-
-
     handleTextChange(event) {
-        this.textValue = event.target.value;
+        this.descriptionValue = event.target.value;
         this.checkFormValidity();
     }
 
     handleEmailChange(event) {
-        this.emailInput = event.target.value;
-        this.emailValid = validationService.isValidEmail(this.emailInput);
-
+        this.emailValue = event.target.value;
+        this.emailValid = validationService.isValidEmail(this.emailValue);
+        let emailCmp = this.template.querySelector(".emailInput");
         if (this.emailValid == false) {
-            this.emailError = 'Please enter a valid email address.';
+            emailCmp.setCustomValidity('Please enter a valid email address.');
+            emailCmp.reportValidity();
         } else {
-            this.emailError = '';
+            emailCmp.setCustomValidity('');
+
         }
         this.checkFormValidity();
     }
 
     checkFormValidity() {
-        this.isSubmitDisabled = !this.emailValid || this.textValue.length < 3;
+        this.isSubmitDisabled = !this.emailValid || this.descriptionValue.length < 3;
     }
 
 
@@ -70,11 +80,9 @@ export default class ContactUsModal extends LightningElement {
     }
 
     handleSubmit() {
-        this.description = this.textValue;
-        this.email = this.emailInput;
-        createCase({ descriptionPar: this.description, emailPar: this.email })
+        createCase({ descriptionPar: this.emailValue, emailPar: this.descriptionValue })
             .then(result => {
-                this.textValue = '';
+                this.descriptionValue = '';
                 this.email = '';
                 this.emailValid = false;
                 this.isSubmitDisabled = true;

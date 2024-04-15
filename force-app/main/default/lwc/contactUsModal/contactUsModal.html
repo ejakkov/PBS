@@ -1,22 +1,22 @@
 <template>
     <c-base-modal>
         <div slot="headerText">
-            Contact Us
+            {headerText}
         </div>
         <div slot="body">
             <div class="slds-p-around_medium lgc-bg">
                 <lightning-input
-                    label="Please confirm your email address:"
-                    placeholder="Type here..."
+                    class="emailInput"
+                    label={emailLabel}
+                    placeholder={typingPlaceholder}
                     required
                     onchange={handleEmailChange}
                 ></lightning-input>
-                <div class="slds-text-color_error slds-text-body_small">{emailError}</div>
             </div>
             <div class="slds-p-left_medium slds-p-right_medium slds-p-bottom_medium lgc-bg">
                 <lightning-textarea
-                    label="Please describe your issue below and confirm the best number and time to contact you:"
-                    placeholder="Type here..."
+                    label={descriptionLabel}
+                    placeholder={typingPlaceholder}
                     minlength="3"
                     value={textValue}
                     onchange={handleTextChange}
@@ -26,8 +26,8 @@
             </div>
         </div>
         <div slot="footerContent">
-            <button onclick={closeModal} class="slds-button slds-button_success">Close</button>
-            <button class="slds-button slds-button_destructive" disabled={isSubmitDisabled} onclick={handleSubmit}>Submit</button>
+            <button onclick={closeModal} class="slds-button slds-button_success">{closeBtnText}</button>
+            <button class="slds-button slds-button_destructive" disabled={isSubmitDisabled} onclick={handleSubmit}>{submitBtnText}</button>
         </div>
     </c-base-modal>
 </template>

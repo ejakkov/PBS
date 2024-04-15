@@ -1,11 +1,11 @@
 import { MessageContext, subscribe, unsubscribe } from 'lightning/messageService';
-import { LightningElement, api, wire } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import ERROR_MESSAGE_CHANNEL from '@salesforce/messageChannel/errorMessageChannel__c';
 import errorModalService from "c/errorModalService";
 import createCaseAutomatically from '@salesforce/apex/CreateCase.createCaseAutoSubmission';
 export default class ErrorModal extends LightningElement {
     autoSubmission = false;
-    allowSubmit;
+    allowSubmit = false;
     errorMessage;
     headerText;
     closeButton;
@@ -25,7 +25,6 @@ export default class ErrorModal extends LightningElement {
             this.subscription = subscribe(this.messageContext, ERROR_MESSAGE_CHANNEL,
                 (parameter)=>{
                         const modal = this.template.querySelector("c-base-modal");
-                        console.log(parameter)
                         this.errorMessage = parameter.errMsg;
                         this.headerText = parameter.headerTxt;
                         this.closeButton = parameter.clBtn;

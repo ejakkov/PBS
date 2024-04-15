@@ -1,8 +1,8 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement } from 'lwc';
 import errorModalService from "c/errorModalService";
-export default class ErrorModalDescription extends LightningElement {
+export default class contactUsModalDescription extends LightningElement {
     
-    codeSnippet = `<pre><code>&lt;c-error-modal&gt&lt;/c-error-modal&gt;
+    codeSnippet = `<pre><code>&lt;c-contact-us-modal&gt&lt;/c-contact-us-modal&gt;
 </code></pre>`;
     
     apiAttributes = [
@@ -14,7 +14,7 @@ export default class ErrorModalDescription extends LightningElement {
         }
     ];
     handleModal() {
-        errorModalService.openModal();
+        errorModalService.openContactUs();
     }
   
 }
