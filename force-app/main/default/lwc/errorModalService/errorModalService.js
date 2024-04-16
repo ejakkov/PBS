@@ -14,22 +14,17 @@ class ErrorModalService {
     openErrorModal(customParameters) {
         if (customParameters){
              if (customParameters.customHeader) {
-                this.header = customParameters.customHeader;
-                this.payload.headerTxt = this.header;
+                this.payload.headerTxt = customParameters.customHeader; 
             }
             if (customParameters.customBody) {
-                this.body = customParameters.customBody;
-                this.payload.errMsg = this.body;
+                this.payload.errMsg = customParameters.customBody;
             }
             if (customParameters.allowSubmit == false) {
-                this.allowSubmit = false;
-                this.payload.allowSub = this.allowSubmit;
+                this.payload.allowSub = false;
             }
             if (customParameters.autoSubmission == true) {
-                this.autoSubmission = true;
-                this.allowSubmit = false;
-                this.payload.autoSubm = this.autoSubmission;
-                this.payload.allowSub = this.allowSubmit;
+                this.payload.autoSubm = true;
+                this.payload.allowSub = false;
             }
         }
         publish(this.messageContext, ERROR_MESSAGE_CHANNEL, this.payload);
