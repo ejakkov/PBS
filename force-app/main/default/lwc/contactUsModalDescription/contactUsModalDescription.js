@@ -13,8 +13,8 @@ export default class contactUsModalDescription extends LightningElement {
             description: '-'
         }
     ];
-    // handleModal() {
-    //     errorModalService.openContactUs();
-    // }
+    handleModal() {
+        errorModalService.openContactUs();
+    }
   
 }

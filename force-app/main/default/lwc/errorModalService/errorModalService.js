@@ -1,12 +1,6 @@
 import { createMessageContext, publish } from "lightning/messageService";
 import ERROR_MESSAGE_CHANNEL from '@salesforce/messageChannel/errorMessageChannel__c';
 import CONTACT_US_MESSAGE_CHANNEL from '@salesforce/messageChannel/contactUsMessageChannel__c';
-import errorMessage from "@salesforce/label/c.PBS_Error_Message";
-import submitBtn from "@salesforce/label/c.PBS_ContactUs_SubmitBtn";
-import descriptionLabel from "@salesforce/label/c.PBS_ContactUs_DescriptionLabel";
-import emailLabel from "@salesforce/label/c.PBS_ContactUs_EmailLabel";
-import typingPlaceholder from "@salesforce/label/c.PBS_ContactUs_Placeholder";
-
 
 class ErrorModalService {
 
@@ -42,16 +36,7 @@ class ErrorModalService {
     }
 
     openContactUs() {
-        let payload = {
-            clBtn: closeBtn,
-            submBtn: submitBtn,
-            descLbl: descriptionLabel,
-            emLbl: emailLabel,
-            typPlc: typingPlaceholder,
-            headerTxt: contactBtn
-            };
-        publish(this.messageContext, CONTACT_US_MESSAGE_CHANNEL, payload);
-
+        publish(this.messageContext, CONTACT_US_MESSAGE_CHANNEL);
     }
 
 }

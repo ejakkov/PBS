@@ -3,6 +3,12 @@ import { MessageContext, subscribe, unsubscribe } from 'lightning/messageService
 import CONTACT_US_MESSAGE_CHANNEL from '@salesforce/messageChannel/contactUsMessageChannel__c';
 import createCase from '@salesforce/apex/CreateCase.createCaseFromForm';
 import validationService from 'c/validationService';
+import submitBtnLabel from "@salesforce/label/c.PBS_ContactUs_SubmitBtn";
+import descLabel from "@salesforce/label/c.PBS_ContactUs_DescriptionLabel";
+import emLabel from "@salesforce/label/c.PBS_ContactUs_EmailLabel";
+import typingPlaceholderLabel from "@salesforce/label/c.PBS_ContactUs_Placeholder";
+import closeBtnLabel from "@salesforce/label/c.PBS_Error_CloseBtn";
+import contactUsLabel from "@salesforce/label/c.PBS_Error_ContactBtn";
 
 export default class ContactUsModal extends LightningElement {
     @wire(MessageContext)
@@ -14,12 +20,12 @@ export default class ContactUsModal extends LightningElement {
     isSubmitDisabled = true;
     emailValid = false;
     emailError = '';
-    submitBtnText;
-    closeBtnText;
-    typingPlaceholder;
-    emailLabel;
-    descriptionLabel;
-    headerText;
+    submitBtnText = submitBtnLabel;
+    closeBtnText = closeBtnLabel;
+    typingPlaceholder = typingPlaceholderLabel;
+    emailLabel = emLabel;
+    descriptionLabel = descLabel;
+    headerText = contactUsLabel;
     connectedCallback() {
         this.handleSubscribe();
     }
@@ -31,14 +37,8 @@ export default class ContactUsModal extends LightningElement {
     handleSubscribe() {
         if(!this.subscription) {
             this.subscription = subscribe(this.messageContext, CONTACT_US_MESSAGE_CHANNEL,
-                (parameter)=>{
+                ()=>{
                     const modal = this.template.querySelector("c-base-modal");
-                    this.submitBtnText = parameter.submBtn;
-                    this.closeBtnText = parameter.clBtn;
-                    this.typingPlaceholder = parameter.typPlc;
-                    this.emailLabel = parameter.emLbl;
-                    this.descriptionLabel = parameter.descLbl;
-                    this.headerText = parameter.headerTxt;
                     modal.open()
                 }
                 )
