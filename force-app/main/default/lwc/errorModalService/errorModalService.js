@@ -38,7 +38,6 @@ class ErrorModalService {
                 this.payload.allowSub = this.allowSubmit;
             }
         }
-       console.log(this.payload);
         publish(this.messageContext, ERROR_MESSAGE_CHANNEL, this.payload);
     }
 

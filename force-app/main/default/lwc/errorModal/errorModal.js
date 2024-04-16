@@ -28,7 +28,6 @@ export default class ErrorModal extends LightningElement {
         if(!this.subscription) {
             this.subscription = subscribe(this.messageContext, ERROR_MESSAGE_CHANNEL,
                 (parameter)=>{
-                    console.log('parampamapam', parameter);
                         const modal = this.template.querySelector("c-base-modal");
                         if (parameter.errMsg) this.errorMessage = parameter.errMsg;
                         if (parameter.headerTxt) this.headerText = parameter.headerTxt;
