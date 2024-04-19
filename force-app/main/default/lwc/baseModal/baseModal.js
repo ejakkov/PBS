@@ -7,7 +7,7 @@ export default class BaseModal extends LightningElement {
     this.isOpen = true;
   }
 
-    @api close() {
+  @api close() {
         this.isOpen = false;
     }
 }

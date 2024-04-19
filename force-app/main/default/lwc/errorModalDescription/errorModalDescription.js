@@ -1,4 +1,4 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement } from 'lwc';
 import errorModalService from "c/errorModalService";
 export default class ErrorModalDescription extends LightningElement {
     
