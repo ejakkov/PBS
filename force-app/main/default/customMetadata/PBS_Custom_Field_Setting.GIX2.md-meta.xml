@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>GIX2</label>
+    <protected>false</protected>
+    <values>
+        <field>PBS_Custom_Visibility__c</field>
+        <value xsi:type="xsd:string">{&quot;GIF2&quot;:&quot;Y&quot;}</value>
+    </values>
+    <values>
+        <field>PBS_Default_Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>PBS_Is_Required__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>PBS_Line_Break_After__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>PBS_Line_Break_Before__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>PBS_Placeholder__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

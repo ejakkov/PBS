@@ -23,6 +23,10 @@ export default class ComponentLibrary extends LightningElement {
         {
             id: "c/contactUsModalDescription",
             title: "Contact Us Modal",
+        },
+        {
+            id: "c/metadataFormDescription",
+            title: "Metadata Form"
         }
     ];
 
