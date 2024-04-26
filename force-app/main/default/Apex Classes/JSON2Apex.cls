@@ -1,55 +1,265 @@
 public class JSON2Apex {
 
-    public String customFieldCode;
-    public Integer customFieldLength;
-    public Integer customFieldPositionNo;
-    public Integer customFieldSeqNo;
-    public String customFieldText;
-    public String customFieldType;
-    public String effectiveDate;
-    public PreviousAnswer previousAnswer;
-    public Response response;
-    public Settings settings;
-    public Boolean visible;
+    @AuraEnabled
+    public String Category;
+
+    @AuraEnabled
+    public List<Fields> Fields;
+
+    @AuraEnabled
+    public String Header;
+
+    @AuraEnabled
+    public List<String> PlaceholderFields;
+
+    @AuraEnabled
+    public List<String> RequiredFields;
+
+    @AuraEnabled
+    public Integer Position;
+
+    public class PreConfiguredAnswers {
+        @AuraEnabled
+        public List<Answer> answer;
+    }
+
+    public class ResponseZ {
+        @AuraEnabled
+        public Integer customFieldSeqNo;
+
+        @AuraEnabled
+        public Object answerText;
+    }
+
+    public class SettingsZ {
+        @AuraEnabled
+        public String Id;
+
+        @AuraEnabled
+        public String DeveloperName;
+
+        @AuraEnabled
+        public Boolean PBSIsRequiredc;
+
+        @AuraEnabled
+        public Boolean PBSLineBreakAfterc;
+
+        @AuraEnabled
+        public Boolean PBSLineBreakBeforec;
+    }
+
+    public class FieldsX {
+        @AuraEnabled
+        public String customFieldCode;
+
+        @AuraEnabled
+        public Integer customFieldLength;
+
+        @AuraEnabled
+        public Integer customFieldPositionNo;
+
+        @AuraEnabled
+        public Integer customFieldSeqNo;
+
+        @AuraEnabled
+        public String customFieldText;
+
+        @AuraEnabled
+        public String customFieldType;
+
+        @AuraEnabled
+        public String effectiveDate;
+
+        @AuraEnabled
+        public SettingsZ settings;
+
+        @AuraEnabled
+        public ResponseY response;
+
+        @AuraEnabled
+        public Boolean visible;
+
+        @AuraEnabled
+        public String visibilityControlledBy;
+    }
+
+    public class ListOptions {
+        @AuraEnabled
+        public String label;
+
+        @AuraEnabled
+        public String value;
+    }
+
+    public class SettingsY {
+        @AuraEnabled
+        public String Id;
+
+        @AuraEnabled
+        public String DeveloperName;
+
+        @AuraEnabled
+        public String PBSCustomVisibilityc;
+
+        @AuraEnabled
+        public Boolean PBSIsRequiredc;
+
+        @AuraEnabled
+        public Boolean PBSLineBreakAfterc;
+
+        @AuraEnabled
+        public Boolean PBSLineBreakBeforec;
+    }
+
+    public class FieldsV {
+        @AuraEnabled
+        public String customFieldCode;
+
+        @AuraEnabled
+        public Integer customFieldLength;
+
+        @AuraEnabled
+        public Integer customFieldPositionNo;
+
+        @AuraEnabled
+        public Integer customFieldSeqNo;
+
+        @AuraEnabled
+        public String customFieldText;
+
+        @AuraEnabled
+        public String customFieldType;
+
+        @AuraEnabled
+        public String effectiveDate;
+
+        @AuraEnabled
+        public ResponseY response;
+
+        @AuraEnabled
+        public Settings settings;
+
+        @AuraEnabled
+        public Boolean visible;
+
+        @AuraEnabled
+        public PreConfiguredAnswers preConfiguredAnswers;
+
+        @AuraEnabled
+        public List<ListOptions> listOptions;
+    }
 
     public class PreviousAnswer {
+        @AuraEnabled
         public String answerText;
     }
 
-    public class Response {
+    public class ResponseY {
+        @AuraEnabled
         public Integer customFieldSeqNo;
+
+        @AuraEnabled
+        public Boolean answerText;
+    }
+
+    public class FieldsZ {
+        @AuraEnabled
+        public String customFieldCode;
+
+        @AuraEnabled
+        public Integer customFieldLength;
+
+        @AuraEnabled
+        public Integer customFieldPositionNo;
+
+        @AuraEnabled
+        public Integer customFieldSeqNo;
+
+        @AuraEnabled
+        public String customFieldText;
+
+        @AuraEnabled
+        public String customFieldType;
+
+        @AuraEnabled
+        public String effectiveDate;
+
+        @AuraEnabled
+        public PreviousAnswer previousAnswer;
+
+        @AuraEnabled
+        public SettingsZ settings;
+
+        @AuraEnabled
+        public Response response;
+
+        @AuraEnabled
+        public Boolean visible;
+
+        @AuraEnabled
+        public String visibilityControlledBy;
+    }
+
+    public class Response {
+        @AuraEnabled
+        public Integer customFieldSeqNo;
+
+        @AuraEnabled
         public String answerText;
+    }
+
+    public class Answer {
+        @AuraEnabled
+        public Integer answerPositionNo;
+
+        @AuraEnabled
+        public Integer answerSeqNo;
+
+        @AuraEnabled
+        public String answerText;
+    }
+
+    
+    public class Fields {
+        @AuraEnabled
+        public String customFieldCode;
+
+        @AuraEnabled
+        public Integer customFieldLength;
+
+        @AuraEnabled
+        public Integer customFieldPositionNo;
+
+        @AuraEnabled
+        public Integer customFieldSeqNo;
+
+        @AuraEnabled
+        public String customFieldText;
+
+        @AuraEnabled
+        public String customFieldType;
+
+        @AuraEnabled
+        public String effectiveDate;
+
+        @AuraEnabled
+        public PreviousAnswer previousAnswer;
+
+        @AuraEnabled
+        public Response response;
+
+        @AuraEnabled
+        public Settings settings;
+
+        @AuraEnabled
+        public Boolean visible;
     }
 
     public class Settings {
     }
 
-    public static List<JSON2Apex> parseFields(String json) {
-        List<Map<String, Object>> parsedJson = (List<Map<String, Object>>) JSON.deserializeUntyped(json);
-        List<JSON2Apex> fieldsList = new List<JSON2Apex>();
-        
-        for (Map<String, Object> entry : parsedJson) {
-            if (entry.containsKey('Fields')) {
-                List<Map<String, Object>> fields = (List<Map<String, Object>>) entry.get('Fields');
-                for (Map<String, Object> field : fields) {
-                    JSON2Apex fieldsObj = new JSON2Apex();
-                    fieldsObj.customFieldCode = (String) field.get('customFieldCode');
-                    fieldsObj.customFieldLength = (Integer) field.get('customFieldLength');
-                    fieldsObj.customFieldPositionNo = (Integer) field.get('customFieldPositionNo');
-                    fieldsObj.customFieldSeqNo = (Integer) field.get('customFieldSeqNo');
-                    fieldsObj.customFieldText = (String) field.get('customFieldText');
-                    fieldsObj.customFieldType = (String) field.get('customFieldType');
-                    fieldsObj.effectiveDate = (String) field.get('effectiveDate');
-                    fieldsObj.visible = (Boolean) field.get('visible');
-                    // Additional fields can be mapped similarly if needed
-
-                    // Add the mapped object to the list
-                    fieldsList.add(fieldsObj);
-                }
-                break; // Assuming you only want the 'Fields' part and stop after processing it
-            }
-        }
-
-        return fieldsList;
+    @AuraEnabled
+    public static List<JSON2Apex> parse(String json) {
+        return (List<JSON2Apex>) System.JSON.deserialize(json, List<JSON2Apex>.class);
     }
 }

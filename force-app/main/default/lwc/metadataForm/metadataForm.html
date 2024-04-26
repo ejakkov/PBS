@@ -1,3 +1,27 @@
 <template>
-    
+    <div class="slds-align_absolute-center slds-p-around_small">
+        <div class="container slds-p-around_small">
+            <template if:true={fieldsData}>
+                <template for:each={fieldsData} for:item="field">
+                    <div key={field.id} class="custom-field">
+                        <template if:true={field.isTextType}>
+                            <div class="slds-p-around_small">
+                                <lightning-input type="text" label={field.customFieldText}></lightning-input>
+                            </div>
+                        </template>
+                        <template if:true={field.isYesNoType}>
+                            <div class="slds-p-around_small ">
+                                <p>{field.customFieldText}</p>
+                                <div class="radio-buttons">
+                                    <lightning-input type="checkbox" label="Yes"></lightning-input>
+                                    <lightning-input type="checkbox" label="No"></lightning-input>
+                                </div>
+                            </div>                 
+                        </template>
+                    </div>
+                </template>
+            </template>
+            <lightning-button class = "slds-align_absolute-center slds-p-around_small" label="Submit" variant="neutral" onclick={handleModal}></lightning-button>
+        </div>
+    </div>
 </template>

@@ -2,19 +2,31 @@ import { LightningElement, wire } from 'lwc';
 import getResponse from '@salesforce/apex/MockAPI.getMockResponse';
 
 export default class MetadataForm extends LightningElement {
+
+    fieldsData;
+    isDataLoaded = false;
     @wire (getResponse) mockResponse ({ error, data }) {
         if (data) {
-          console.log('data', data);
-          this.record = data.customFieldText;
-          this.error = undefined;
+          this.fieldsData = data[0].Fields;
+          this.isDataLoaded = true;
+          this.renderHTML();
         } else if (error) {
-          this.error = error;
-          this.record = undefined;
+          console.log(error);
         }
       }
 
-    renderedCallback() {
-        console.log(this.mockResponse.data);
-        console.log('faina faina');
+      renderHTML() {
+        this.fieldsData = this.fieldsData.map(field => {
+          return {
+              ...field,
+              isTextType: field.customFieldType === 'TEXT',
+              isYesNoType: field.customFieldType === 'YESNO'
+          };
+      });
     }
+
+
+
+
+
 }

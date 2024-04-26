@@ -1,7 +1,7 @@
 import { LightningElement } from 'lwc';
 
 export default class MetadataFormDescription extends LightningElement {
-    codeSnippet = `<pre><code>&lt;c-contact-us-modal&gt&lt;/c-contact-us-modal&gt;
+    codeSnippet = `<pre><code>&lt;c-metadata-form&gt&lt;/c-metadata-form&gt;
 </code></pre>`;
     
     apiAttributes = [
@@ -12,4 +12,5 @@ export default class MetadataFormDescription extends LightningElement {
             description: '-'
         }
     ];
+
 }

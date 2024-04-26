@@ -1,10 +1,8 @@
 <template>
     <c-component-description card-title="This is the title" api-attributes = {apiAttributes}>
         <h2 slot="title">Metadata Form</h2>
-        <div slot="description">Contact Us modal form with input for email and error description and input validation. "Submit" button creates a case with relavant email and description.</div>
+        <div slot="description">A generic input field with multiple sections controllable via metadata, using API request. Visibility and other features can be set via custom metadata</div>
         <div slot="demo">
-            <lightning-button class = "slds-align_absolute-center slds-p-around_small" label="Click to open Contact Us modal" variant="success" onclick={handleModal}></lightning-button>
-            <c-contact-us-modal></c-contact-us-modal>
             <c-metadata-form></c-metadata-form>
         </div>
         <div slot="code-snippet">
